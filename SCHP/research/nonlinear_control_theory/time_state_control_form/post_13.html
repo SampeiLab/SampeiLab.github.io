@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>時間軸状態制御形に基づく制御方策の収束性解析 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 非線形性を有する制御対象は身の回りに数多くあります． その中でもけん引車両や宇..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_32">
+
+<div class="articleHeader">
+<h2>時間軸状態制御形に基づく制御方策の収束性解析</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/ハイブリッドシステム.html">ハイブリッドシステム</a>, <a href="/SCHP/tags/リアプノフ関数.html">リアプノフ関数</a>, <a href="/SCHP/tags/時間軸状態制御形.html">時間軸状態制御形</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="lyapunov2.gif" class="mt-image-center" height="232" src="/SCHP/research/nonlinear_control_theory/time_state_control_form/lyapunov2.gif" style="text-align: center; display: block; margin: 0 auto 20px;" width="414">
+</p><p>非線形性を有する制御対象は身の回りに数多くあります．
+その中でもけん引車両や宇宙ロボットなどのシステムはノンホロノミックシステムと呼ばれるクラスに分類され，理論的に制御しづらいシステムとなることが知られています．
+これまでに本研究室ではこのノンホロノミックシステムに対して時間軸状態制御形に基づく制御方策を提案してきました．
+この制御方策は制御系設計における柔軟性や拡張性に優れているという特長があり，シミュレーションや実験等によってその有効性を示してきました．
+</p><p>しかしこの方策は制御の過程においてコントローラの切換えを行う必要があります．
+このような状態や入力の切替えという離散的現象を伴うシステムはハイブリッドシステムと呼ばれ，理論的に厳密な安定性や収束性などの性質を解析することが困難なシステムとなります．
+</p><p>このような問題に対して本研究室では，時間軸状態制御形に基づく制御方策によって制御されるノンホロノミックシステムをハイブリッドシステムとしての視点から解析し，リアプノフ関数を用いた安定性の概念に基づいて収束性の検討を行っています．
+これまでに「単一の離散的リアプノフ関数」「共通リアプノフ関数」「切替えリアプノフ関数」という3通りのリアプノフ関数を用いて，それぞれ特徴の異なる収束性保証条件を明らかにしています．
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Mitsuji SAMPEI, Shigeki NAKAURA, Yoshikatsu HOSHI, Tatsuya HOJO, and Atsushi KUROSAKI, &quot;Anti-windup Control for MIMO System Using Timescale Transform&quot;, Proceedings of the 2006 IEEE International Conference on Control Applications, 2006
+</li><li>三平満司，中浦茂樹，星義克，北條達也，黒崎淳， &quot;時間軸変換を利用した多入出力系に対するアンチワインドアップ制御&quot;， 第5回計測自動制御学会制御部門大会，2005
+</li><li>星義克，三平満司，中浦茂樹， &quot;時間軸状態制御形に基づくchained systemのハイブリッド制御-共通Lyapunov関数による安定性保証-&quot;， 計測自動制御学会論文集，2004
+</li><li>Yoshikatsu HOSHI, Mitsuji SAMPEI, Shigeki NAKAURA, &quot;Hybrid Control of Chained Systems Based on Time-State Control Form -Guarantee of Stability by Common Lyapunov Function-&quot;, Trans. of SICE, 2004
+</li><li>Yoshikatsu HOSHI, Mitsuji SAMPEI, Shigeki NAKAURA, &quot;Stability Analysis of Hybrid Time-State Control for Chained Form Systems&quot;, Proceedings of the 6th IFAC symposium on Nonlinear Control Systems, 2004
+</li><li>星義克，三平満司，中浦茂樹， &quot;共通Lyapunov関数による時間軸状態制御形の安定性保証&quot;， 第4回計測自動制御学会制御部門大会，2004
+</li><li>星義克，三平満司，中浦茂樹， &quot;非ホロノミックシステムのハイブリッド制御-時間軸状態制御形に基づく制御方策の安定性解析-&quot;， 第3回計測自動制御学会制御部門大会，2003
+</li><li>星義克，三平満司，中浦茂樹， &quot;時間軸状態制御形によるハイブリッド制御の安定化保証&quot;， 第2回計測自動制御学会制御部門大会，2002
+</li><li>Yoshikatsu HOSHI, Mitsuji SAMPEI, Shigeki NAKAURA, &quot;Stability of Hybrid Control Systems Based on Time-State Control Forms&quot;, Proceedings of the 15th International Symposium on Mathematical Theory of Networks and Systems (MTNS2002), 2002
+</li><li>Yoshikatsu HOSHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Stability of Hybrid Control Systems Based on Time-state Control Forms&quot;, TITech COE/Super Mechano-System Symposium 2001, 2001
+</li><li>星義克，三平満司， &quot;時間軸状態制御形に基づくハイブリッド制御系の安定化条件&quot;， 第1回計測自動制御学会制御部門大会，2001
+</li><li>星義克，三平満司， &quot;ノンホロノミックシステムに対するハイブリッド制御の安定性解析&quot;， 第7回「運動と振動の制御」シンポジウム，日本機械学会，2001
+</li><li>清田洋光，三平満司， &quot;時間軸状態制御形によるドリフト項をもたない非ホロノミックシステムの安定化&quot;， システム制御情報学会論文集，1999
+</li><li>石川将人，三平満司， &quot;非線形システムの可安定性と平衡点集合の関係について&quot;， 計測自動制御学会論文集，1999
+</li><li>Mitsuji SAMPEI, Hiromitsu KIYOTA, and Masato ISHIKAWA, &quot;Control Strategies for Mechanical Systems with Various Constraints -Control of Non-Holonomic Systems-&quot;, Proceedings of 1999 IEEE International Conference on Systems, Man and Cybernetics, 1999
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>移動領域制約を考慮した2輪車両型移動ロボットの位置姿勢制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 現実の制御対象には，システムの状態に関する制約が存在する． この問題に対して，..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_93">
+
+<div class="articleHeader">
+<h2>移動領域制約を考慮した2輪車両型移動ロボットの位置姿勢制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Chained-Form System.html">Chained-Form System</a>, <a href="/SCHP/tags/状態制約.html">状態制約</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img width="1053" margin: alt="const_two_model.png" src="http://www-i.sc.ctrl.titech.ac.jp/SCHP/assets/img/const_two_model.png" style="&quot;text-align:" height="745" block; center; 20px;" auto 0 display: class="mt-image-center">
+現実の制御対象には，システムの状態に関する制約が存在する．
+この問題に対して，座標変換と入力変換の写像対を用いることで制御則を設計する手法が先行研究で提案されている．
+本研究では移動領域制約を考慮した2輪車両型移動ロボットの位置姿勢制御を行う．
+</p><h4>シミュレーション
+</h4><p>まず，2輪車両型移動ロボットに対して運動学モデルを与え，このシステムに対する移動領域制約を考慮していない既存の漸近安定化制御則を考察し，
+移動領域制約を満たした安定化ができない場合があることを示す．
+つぎに，既存の制御則に加えて，上記の変換を用いることで，新たに移動領域を考慮した制御則を設計する．
+最後に，具体的に長方形の移動領域制約を考慮した際に制御則設計を適用し，シミュレーションにより移動領域制約を満たした安定化が達成されることを示す．
+</p><h3>移動領域制約の考慮なし
+</h3><p><iframe allowfullscreen width="420" frameborder="0" src="https://www.youtube.com/embed/qhEHitwAe3E" height="315"></iframe>
+</p><h3>移動領域制約の考慮あり
+</h3><p><iframe allowfullscreen width="420" frameborder="0" src="https://www.youtube.com/embed/lYXd84gmGwQ" height="315"></iframe>
+</p><h4>実機実験
+</h4><p>理論の検証のために実機実験を行う．しかし，上記の設計制御則は入力が過大になることがあるため，実験機で実現するためには入力制約を考慮した制御則が必要となる．
+そこで，入力が上限値を超えた際には，2つの入力の比を保ちながら，超えた入力を上限値で飽和させることで，入力制約の有無に関係なく同じ軌跡となるような制御則を提案する．
+以上の提案制御則で実証実験を行い，提案した制御則の妥当性を示す．
+</p><h3>移動領域制約の考慮なし
+</h3><p><iframe allowfullscreen width="420" frameborder="0" src="https://www.youtube.com/embed/suXiyPhzATw" height="315"></iframe>
+</p><h3>移動領域制約の考慮あり
+</h3><p><iframe allowfullscreen width="420" frameborder="0" src="https://www.youtube.com/embed/DJwSdFCxzz4" height="315"></iframe>
+</p><h3>入力が過大になる条件での実験(初期状態を移動領域制約の境界に近づけた場合)
+</h3><p><iframe allowfullscreen width="420" frameborder="0" src="https://www.youtube.com/embed/xLxCBfWR1d0" height="315"></iframe>
+<iframe allowfullscreen width="420" frameborder="0" src="https://www.youtube.com/embed/wqbNRqMkZOE" height="315"></iframe>
+</p><h4>投稿論文・学会発表
+</h4>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.3mech.titech.ac.jp/">大学院理工学研究科 機械系3専攻</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 6.0.5</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2017 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

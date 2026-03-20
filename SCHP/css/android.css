@@ -1,0 +1,2 @@
+@media all and (max-width: 640px) and (orientation: landscape) { #main .archiveNavFooter li.prev { margin-left: 10px; margin-bottom: 10px; }
+  #main .archiveNavFooter li.next { margin-bottom: 10px; margin-right: 10px; } }

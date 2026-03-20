@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>つり輪運動の制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　本研究では非線形システムの応用としてつり輪運動に着目している． つり輪運動は..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_24">
+
+<div class="articleHeader">
+<h2>つり輪運動の制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/つり輪ロボット.html">つり輪ロボット</a>, <a href="/SCHP/tags/スライディングモード制御.html">スライディングモード制御</a>, <a href="/SCHP/tags/入出力線形化.html">入出力線形化</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/平面リンクマニピュレータ.html">平面リンクマニピュレータ</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="rings3link.jpg" height="242" src="/SCHP/research/flying_rings/rings3link.jpg" width="265">
+</p><p>　本研究では非線形システムの応用としてつり輪運動に着目している．
+つり輪運動は器械体操における競技の一つであるが，輪と演技者の接点が前後左右の多方向に自由に動く特徴（劣駆動性）がある．
+劣駆動システムとは一般化座標より入力の数が少ないシステムのことであり，人間の技巧的な動作を模したモデルとして多くの研究がなされている．
+また，つり輪運動は静止姿勢と振動を繰り返す興味深いものであり，非線形制御における安定化と運動制御に結びついている．
+</p><p>　つり輪運動に関してはその劣駆動性を考慮した有効な制御手法について，これまで十分な研究はなされていない．
+そこで，本研究ではつり輪運動に着目し非線形制御理論による運動の実現を目指している．
+</p><p>　本研究ではつり輪の運動をロープと上下半身を模した平面3リンクマニピュレータまたは，ロープと腕と上下半身を模した平面4リンクマニピュレータとしてモデルを構築する．
+図は，3リンクの場合を示している．
+ロープの根元と手先は非駆動な劣駆動システムとなっている．
+</p><p>　このモデルに対して，スライディングモード，出力零化，一般化運動量を用いた安定化のための制御器を提案し，倒立姿勢での安定化が可能かどうか，さらに安定化範囲の点から制御器を評価した．
+</p><p>　また，振り上げ運動を実現するために第2リンク，第3リンクを1リンク振子とみなし，そのエネルギーを大きくすることを目標とした制御則を設計した．
+制御則には出力零化制御を用い，速度によらずエネルギーを大きくする出力関数を角速度，一般化運動量を用いて設計し，入力制限，振り上がり時間を基に評価し有効性を示した．
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

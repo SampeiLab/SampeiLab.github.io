@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>直動型歩行ロボットの連続跳躍制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　動物は移動する際，跳躍を行うことによって車輪や歩行では移動ができないような複..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_18">
+
+<div class="articleHeader">
+<h2>直動型歩行ロボットの連続跳躍制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/直動型アクチュエータ.html">直動型アクチュエータ</a>, <a href="/SCHP/tags/跳躍運動.html">跳躍運動</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="LinearJumper.gif" class="mt-image-center" height="400" src="/SCHP/research/linear_jumper/LinearJumper.gif" style="text-align: center; display: block; margin: 0 auto 20px;" width="400">
+</p><p>　動物は移動する際，跳躍を行うことによって車輪や歩行では移動ができないような複雑な環境で移動することを可能にしています．
+このような利点を生かしたロボットを実現するために多くの研究がなされており，
+その多くはアクチュエータやセンサの数を増やし，
+安定化のための複雑な制御を加えることで跳躍の実現を目指しています．
+これに対して入力の数を制限し軽量かつ簡易化された機構モデルを用いて跳躍の実現を目指す研究があります．
+</p><p>　本研究では，最も簡単な構造である直動型のアクチュエータ1つのみを用いて連続跳躍を実現することを目的としています．
+ロボット全体の重心をアクチュエータの力の作用線上からずらしたモデルを考えることで，
+跳躍により重心を中心に回転モーメントが生じ，その回転力によって姿勢を立て直すことができるので連続跳躍が可能になります.
+</p><h5>動画
+</h5><ul><li>シミュレーション<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/2m9nS_wNwoA" width="420"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/2T7eU2dqbik" width="420"></iframe>
+</li><li>実験<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/Pky8kp-LVlY" width="420"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/PDw0wULcaQg" width="420"></iframe>
+</li></ul><h5>投稿論文・学会発表
+</h5><ul><li>木田嵩，阿南隆一，中浦茂樹，三平満司， &quot;直動型１アクチュエータロボットによる連続跳躍の検証実験&quot;， 第47回自動制御連合講演会，2004
+</li><li>Tetsuro FUNATO, Son KUSWADI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Continuous Hopping Motion Experiment of One Linear Actuator Robot with Adaptive Fuzzy Control&quot;, Proceedings of SICE Annual Conference 2003, 2003
+</li><li>Son KUSWADI, Aki OHNISHI, Akiko TAKAHASHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;A one linear actuator hopping robot: modeling and control&quot; Advanced Robotics, 2003
+</li><li>Son KUSWADI, Mitsuji SAMPEI, Shigeki NAKAURA, &quot;Adaptive Fuzzy Control of One Linear Actuator Hopping Robot&quot;, Journal of Advanced Computational Intelligence, 2003
+</li><li>Son KUSWADI, Aki OHNISHI, Akiko TAKAHASHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Feedback Error Learning Control Using Adaptive Fuzzy Network to Control One Linear Actuator Hopping Robot&quot;, IEEE Asia Pasific Conference on Circuit and Systems 2002, 2002
+</li><li>Ken TAKEUCHI, Son KUSWADI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Continuous Hopping Motion Control Experiment of One Linear Actuator Robot&quot;, Proceedings of the 41th SICE Annual Conference, 2002
+</li><li>Son KUSWADI, Aki OHNISHI, Akiko TAKAHASHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;One Linear Actuator Hopping Robot Control Using Adaptive Fuzzy Control&quot;, 20th Annual Conference of the Robotics Society of Japan, 2002
+</li><li>Son KUSWADI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Adaptive Fuzzy Control and Its Application to One Linear Actuator Hopping Robot Control&quot;, International Conference on Soft-computing and Intelligent Systems, 2002
+</li><li>Son KUSWADI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;One Linear Actuator Hopping Robot Control Using Adaptive Fuzzy Control&quot;, 2002 International Conference on Fuzzy Systems and Knowledge Discovery, 2002
+</li><li>Aki OHNISHI, Akiko TAKAHASHI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Parameter Optimization and Contorl of a Hopping Robot with One Actuator&quot;, ROBOMEC'01, 2001
+</li><li>Son KUSWADI, Aki OHNISHI, Akiko TAKAHASHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Control of one linear actuator running robot in the plane&quot;, TITech COE/Super Mechano-System Symposium 2001, 2001
+</li><li>大西亜紀，高橋晶子，三平満司，Son KUSWADI， &quot;1入力による跳躍ロボットの機構最適化と制御&quot;， 日本機械学会ロボティクス・メカトロニクス講演会2001，2001
+</li><li>Akiko TAKAHASHI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;A Control of A Hopping Robot with One Linear Actuator&quot;, The 23 Symposium on Dynamical System Theory, 2000
+</li><li>高橋晶子，三平満司， &quot;直動型１アクチュエータ跳躍歩行ロボットの制御&quot;， 第23回Dynamical System Theoryシンポジウム，2000
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

@@ -1,0 +1,202 @@
+
+    <div class="content">
+    
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja" lang="ja" id="sixapart-standard">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="imagetoolbar" content="no" />    
+    <title>2質量モデルのつけられたページ一覧</title>
+    <meta name="generator" content="Movable Type Advanced 6.0.5" />
+    
+
+    
+        
+        
+        
+        
+        
+        
+        <link rel="stylesheet" href="http://192.168.100.71:8080/SCHP/css/s.css" type="text/css" />
+        <link rel="alternate" type="application/atom+xml" title="Atom" href="http://192.168.100.71:8080/SCHP/xml/atom.xml" />
+        <link rel="start" href="http://192.168.100.71:8080/SCHP/" title="Home" />
+        <script type="text/javascript" src="http://192.168.100.71:8080/SCHP/js/mt.js"></script>
+        
+        <link rel="canonical" href="http://192.168.100.71:8080/SCHP/tags/tag_name.html" />
+    
+
+
+    
+    <script type="text/javascript">
+    /* <![CDATA[ */
+    mtAttachEvent('load', mtUpdateScores);
+    mtAttachEvent('usersignin', mtUpdateScores);
+    /* ]]> */
+    </script>
+    
+</head>
+<body id="underHat-theme-006-ver1.2" class=" layout-wtt">
+    <div id="container">
+        <div id="container-inner">
+            <div id="header">
+                <div id="header-inner">
+                    <div id="header-content">
+
+                        <div id="header-name"><a href="http://192.168.100.71:8080/SCHP/" accesskey="1">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></div>
+    
+                        <div id="header-description">Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</div>
+    
+
+                        <div id="header-menu">
+    <ul>
+        <li><a href="http://192.168.100.71:8080/SCHP/">Home</a></li>
+        <li><a href="http://192.168.100.71:8080/SCHP/archives/">アーカイブ</a></li>
+    </ul>
+</div>
+
+
+                        <div class="widget-sign-in widget">
+    <h3 class="widget-header">サインイン</h3>
+    <div id="signin-widget-content" class="widget-content"></div>
+</div>
+<script type="text/javascript">
+/* <![CDATA[ */
+function mtUpdateSignInWidget(u) {
+    var separator = '&nbsp;&nbsp;|&nbsp;&nbsp;';
+    var el = document.getElementById('signin-widget-content');
+    var content = '';
+    if (!el) return;
+    if (u) {
+        if (u && u.is_authenticated) {
+            user = u;
+            mtSaveUser();
+        } else {
+            // user really isn't logged in; so let's do this!
+            return mtSignIn();
+        }
+    } else {
+        u = mtGetUser();
+    }
+    if (u && u.name) {
+        var url;
+        if (u.is_authenticated) {
+            url = 'http://192.168.100.71:8080/cgi-bin/mt/mt-cp.cgi?__mode=view&blog_id=1';
+            url += '&static=' + encodeURIComponent( location.href );
+        } else if (u.url) {
+            url = u.url;
+        } else {
+            url = null;
+        }
+        if (url)
+            content += '<a href="' + url + '">' + u.name + '</a>';
+        else
+            content += '' + u.name + '';
+        if (u.is_author)
+            content += separator + '<a href="http://192.168.100.71:8080/cgi-bin/mt/mt-cp.cgi?__mode=edit&blog_id=1&return_to=' + encodeURIComponent(document.URL) + '">ユーザー情報の編集</a>';
+        
+        content += separator + '<a href="javascript:void(0)" onclick="return mtSignOutOnClick()">サインアウト</a>';
+        
+    } else if (u && u.is_banned) {
+        content = 'このブログにサインインする権限がありません。';
+    } else {
+        content = '<a href="javascript:void(0)" onclick="return mtSignInOnClick(\'signin-widget-content\')">サインイン</a>';
+        
+        
+        
+    }
+    el.innerHTML = content;
+}
+mtAttachEvent('usersignin', mtUpdateSignInWidget);
+mtUpdateSignInWidget();
+/* ]]> */
+</script>
+
+
+                        <div class="header-search">
+    <form method="get" action="http://192.168.100.71:8080/cgi-bin/mt/mt-search.cgi">
+
+        <input type="hidden" name="IncludeBlogs" value="1" />
+
+        <input type="hidden" name="limit" value="20" />
+        <label for="search">検索</label>
+        <input id="search" class="query" name="search" value="" />
+        <input class="submit" type="submit" value="Go" />
+    </form>
+</div>
+
+                   </div>
+                </div>
+            </div>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+
+
+    <h2 class="pageTitle">2質量モデルのつけられたページ一覧</h2>
+    <div class="tag_pagelist">
+    <ul class="allArticleList">
+    
+        <li><a href="/SCHP/research/bipedal_robot/post.html">
+        
+        
+        <p class="picture"><img src="/SCHP/assets_c/2015/04/HumanoidBalance-thumb-160x160-36.png" alt="HumanoidBalance.png" width="60" height="60"></p>
+        
+        
+        
+        <div class="text">
+        <h3 class="title">人間型ロボットのバランス制御</h3>
+        </div>
+        </a></li>
+    
+    </ul>
+    </div>
+    </div>
+    </div>
+                    </div>
+
+                    <p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.3mech.titech.ac.jp/">大学院理工学研究科 機械系3専攻</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+
+                </div>
+            </div>
+            <div id="footer">
+                <div id="footer-inner">
+                    <div id="footer-content">
+                        <div class="widget-powered widget">
+                            <div class="widget-content">
+                                <span>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type Advanced</a></span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+  

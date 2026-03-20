@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>人間型ロボットのバランス制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　脚式移動型ロボットの一種である人間型ロボットは，不整地かつ不連続な場所で移動..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_15">
+
+<div class="articleHeader">
+<h2>人間型ロボットのバランス制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/2質量モデル.html">2質量モデル</a>, <a href="/SCHP/tags/Bipedal Robot.html">Bipedal Robot</a>, <a href="/SCHP/tags/ZMP.html">ZMP</a>, <a href="/SCHP/tags/人間型ロボット.html">人間型ロボット</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="HumanoidBalance.png" height="400" src="/SCHP/research/bipedal_robot/HumanoidBalance.png" width="300">
+<img alt="Huma_dist.png" height="400" src="/SCHP/research/bipedal_robot/Huma_dist.png" width="300">
+</p><p>　脚式移動型ロボットの一種である人間型ロボットは，不整地かつ不連続な場所で移動可能であるという特徴を持っています．
+そして，人間型ロボットも障害物を回避するために，ジャンプしたり横切ったりすることが可能です．
+さらに，多脚ロボットに比べると人間型ロボットは2脚しか持っていないので,狭い道や足場で移動可能です．
+この種のロボットは，人間と似たような形をなしているので，今まで社会生活で整備されてきた人間用の環境をそのまま使え，
+いろいろな分野で応用できるという期待があります．
+これらの事実より，人間型ロボットは多くの研究者に注目されている一つのロボットになっています．
+</p><p>　人間型ロボットは地面に固定されておらず，環境と相互作用することによって環境から外乱を受けているため，
+そのバランスを保持するのは非常に困難です．
+本研究では，今までよく用いられてきた脚式ロボット用のバランス評価としてZMPに基づいて人間型ロボットのバランス制御の解析と制御において研究を行います．
+ZMPは一般に「慣性力と重力によって発生するモーメントの合計がゼロになる床上の点」と定義されています．
+人間型ロボットのバランスを保持するために，
+一般的にZMPの位置を常に足の安定領域内に納めるように制御されています．
+</p><p>　今までの研究ではZMP制御を行う際，1質量モデルが多く用いられてきたが，このモデルにおける制御性能の限界を本研究では示し，その解決法として2質量モデルを提案します．
+その後，目標ZMPを追従しながらとシステムの内部安定性を保持する制御系の設計法を提案します．
+この制御系の有効性をシミュレーションにより確認しています．
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Napoleon, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;A SISO Linear System with An Unstable Inner Loop and Its Application to Zero Moment Point (ZMP) Control&quot;, Proceedings of the 2006 IEEE International Conference on Control Applications, 2006
+</li><li>Napoleon, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;On Existence of Limit Cycle and Robustness of ZMP Control&quot;, Proceedings of the 6th Asian Control Conference, 2006
+</li><li>Napoleon, Hiroki IZU, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;An Analysis of ZMP Control Problem of Humanoid Robot with Compliances in Sole of the Foot&quot;, Preprint of the 16th IFAC World Congress, 2005
+</li><li>中浦茂樹，三平満司， &quot;人間型ロボットのZMPフィードバック制御における制御性能の限界&quot;， 日本ロボット学会誌，2004
+</li><li>伊豆裕樹，中山大輔，中浦茂樹，三平満司， &quot;人間型ロボットの足裏コンプライアンスを考慮したZMP制御によるバランス安定化&quot;， 第4回計測自動制御学会制御部門大会，2004
+</li><li>中浦茂樹，三平満司， &quot;人間型ロボットにおけるZMP制御問題に関する解析&quot;， 第21回日本ロボット学会学術講演会，2003
+</li><li>Napoleon, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;An Analysis of ZMP Control Problem of Humanoid Robot&quot;, The 21th Annual Conference of the Robotics Society of Japan, 2003
+</li><li>Napoleon, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Balance Control of Humanoid Robot based on Frequency Separation of COG and ZMP&quot;, The 20th Annual Conference of the Robotics Society of Japan, 2002
+</li><li>Napoleon, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Balance Control Analysis of Humanoid Robot based on ZMP Feedback Control&quot;, The 2002 IEEE/RSJ International Conference on Intelligent Robot and Systems, 2002
+</li><li>Napoleon, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Posture Control of Humanoid Robot by ZMP Feedback Control&quot;, Humanoid Robotics Project Symposium, 2002
+</li><li>中浦茂樹，三平満司， &quot;COGとZMPの周波数分離による人間型ロボットのバランス安定化&quot;， 第20回日本ロボット学会学術講演会，2002
+</li><li>中浦茂樹，三平満司， &quot;ZMPフィードバック制御による人間型ロボットの姿勢制御&quot; 人間協調・共存型ロボットシステム(HRP)シンポジウム，2002
+</li><li>Napoleon, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Balance Control of Humanoid Robot considering Ankle Torque -- In Case of Compliances in Sole of the Foot --&quot;, The 19th Annual Conference of the Robotics Society of Japan, 2001
+</li><li>中浦茂樹，三平満司， &quot;足首トルクを考慮した人間型ロボットのバランス制御-足底コンプライアンス付きモデルの場合-&quot;， 第19回日本ロボット学会学術講演会，2001
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

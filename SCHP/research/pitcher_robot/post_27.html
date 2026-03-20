@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>軌道設計に基づく球の回転を考慮した投球運動制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="本研究では，人間の投球時には球へ回転が加わることに着目し，球の回転を陽に考慮した..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_109">
+
+<div class="articleHeader">
+<h2>軌道設計に基づく球の回転を考慮した投球運動制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/投球運動，入出力線形化，劣駆動系，最適化.html">投球運動，入出力線形化，劣駆動系，最適化</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p>本研究では，人間の投球時には球へ回転が加わることに着目し，球の回転を陽に考慮した投球運動モデルの提案を行う．
+そして，シミュレーションベースの最適化手法を用いた目標軌道設計手法を提案し，所望の投球運動を実現する．
+</p><p>人間は，投球時に指を巧みに使い分けることで球の回転数を独立に制御することが可能である．
+バイオメカニズムの分野ではこのような投球動作に関する研究が多く行われているが，制御工学の分野での研究は少なく，
+任意の方向に回転数を独立に制御する投球運動の提案は未だ行われていない．
+また，投球運動は３次元運動であり，人間の体幹から指先までをコントロールして投げる複雑な動作であるため，
+そのすべてを取り扱うのことは困難である．そこで，本研究では平面モデルのロボットマニピュレータを考え，
+任意の方向に球の回転を考慮した所望の投球運動を実現することを目的とする．
+</p><p>まず，投球動作の特徴と流れについて述べる．
+投球動作は大きく分けて球の保持，転がり，引っ掻きを特徴とする３つのフェーズに分類することができ，
+これらのフェーズを使い分けることにより球に任意の回転を加えた投球が実現されている．
+本研究ではこの特徴に着目し，３つのフェーズの切り替えを有する前腕，手，球を模した投球運動モデルを提案し，その状態方程式の導出を行う．つぎに，提案した投球モデルを用いて所望の投球を実現させるために，球の重心に対して目標軌道の設計を行う．この際，球の重心を直線に漸近するように目標軌道を設計することで目標方向への投球精度を上げている．また，投球運動モデルは非線形劣駆動モデルであるため，設計された目標軌道に追従する制御則として入出力線形化と出力零化制御を用いる．そして，所望の投球運動を実現させる問題を最適化問題へと定式化し，Chaotic Particle Swam Optimizationと呼ばれる最適解探索アルゴリズムを用いることでこの問題を解く． このアルゴリズムにより探索された投球に対して評価関数・軌道関数・初期条件の変化による投球の違いについて考察し，転がり・引っ掻きのフェーズが球の回転数だけでなく投球速度にも影響を与えること，さらに，ボール保持時間によって投球時の回転数を独立に変更した投球が可能となることを示す．最後に，実機実験を想定し，実験外乱を含んだ投球シミュレーションを行う．肘，手首の絶対角度を目標軌道に追従させる場合には球に関する情報のフィードバックがないため，外乱による影響が球の目標軌道からのずれとして表れやすい．そこで，目標軌道に追従させる状態量を変更することで，この実験外乱による投球への影響が抑えられることを示す．
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>上下運動を伴う倒立振子系の制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　倒立振子とは，台車の上にのった棒を台車の横方向の移動で制御するシステムである..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_38">
+
+<div class="articleHeader">
+<h2>上下運動を伴う倒立振子系の制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/ゲインスケジューリング制御.html">ゲインスケジューリング制御</a>, <a href="/SCHP/tags/ハミルトンヤコビ不等式.html">ハミルトンヤコビ不等式</a>, <a href="/SCHP/tags/双線形システム.html">双線形システム</a>, <a href="/SCHP/tags/縦横2自由度倒立振子.html">縦横2自由度倒立振子</a>, <a href="/SCHP/tags/逆最適制御.html">逆最適制御</a>, <a href="/SCHP/tags/非線形H∞制御.html">非線形H∞制御</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="InvertedPendulum.jpeg" height="316" src="/SCHP/research/inverted_pendulum/InvertedPendulum.jpeg" width="297">
+</p><p>　倒立振子とは，台車の上にのった棒を台車の横方向の移動で制御するシステムである．
+倒立振子の制御に対しては，振り上げから安定化まで，古くからさまざまな制御方法が提案されている．
+</p><p>　これまでの研究により倒立振子は横方向の移動だけで安定化出来る事が知られている．
+しかし，人間が実際に手の平に棒を乗せてその安定化を行おうとした場合，上下方向の運動も使ってバランスをとる．
+そこで，本研究では上下方向の運動を上手く使う事によって倒立振子系の制御パフォーマンス向上を目指す．
+</p><p>　振子の上下運動について考えて見ると，振子がまっすぐに直立しているとき，上下方向の運動は角度に対して影響しない．
+振子が少しでも斜めになっているときは上下方法の運動が角度に対して影響する．
+これは本研究で扱う上下運動を伴う倒立振子系のモデルが双線形性と呼ばれる非線形項を有している為である．
+しかし，ラグランジュ法を使って求められる運動方程式は複雑であり，双線形性が明確ではない．
+そこで，この双線形性を明確化するため，求めた運動方程式に座標変換及び入力変換を行う．
+ここで提案する座標変換，入力変換によってシステムは簡単な形の双線形状態方程式に書き換える事ができる．
+</p><p>　本研究では，この縦横二自由度の運動を有する倒立振子系に対して以下のような三つの安定化制御則を提案する．
+</p><h4>非線形H∞制御(ゲインスケジューリング制御)
+</h4><p>　座標変換，入力変換によって書き換えられた双線形システムに対して非線形H∞制御方法を適用する．
+通常，非線形H∞制御問題の解はハミルトンヤコビ不等式と呼ばれる偏微分方程式に帰着される．
+しかし，ハミルトンヤコビ不等式を一般に解く方法は提案されていない．
+本研究ではシステムの双線形性を利用してこのハミルトンヤコビ不等式の解を線形行列不等式の解に帰着させる方法を提案する．
+  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/YaUipbViK4c" width="420"></iframe>
+  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/3SYJ1ScsLKA" width="420"></iframe>
+</p><h4>双線形システムの逆最適制御
+</h4><p>　n状態m入力の双線形システムに対して逆最適問題を解き，安定化制御則と逆最適な二次形式の評価関数を導出する．
+得られた安定化制御則を縦横二自由度の入力を有する倒立振子系に対して応用し，縦方向の入力を用いることによって倒立振子系の制御パフォーマンスが向上することを数値的に確認する．
+さらに，提案した安定化制御則を用いた場合，線形近似システムの最適制御則を用いた場合よりも制御パフォーマンスが向上することを理論的に示し，数値的に確認する．
+</p><p>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/U1JK3okZONA" width="420"></iframe>
+</p><h4>エネルギー最適性を考慮した倒立振子系の振り上げ制御
+</h4><p>　縦横二自由度の入力を有する倒立振子系の振り上げ安定化制御をエネルギー最適性の観点から考察する．
+本研究では，振り上がるまでに必要なスイング回数を最小にする制御則は，振子に対し常に垂直に加速度入力を加える制御則となることを示す．
+さらに，水平方向の入力に加え鉛直方向の入力も加えることによって，振子をより早く振り上げることができることを理論的に示し，数値的に確認する．
+</p><iframe width="420" height="315" src="https://www.youtube.com/embed/gigZDryzutY" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/OZHhW7CfO3E" frameborder="0" allowfullscreen></iframe>
+<h4>Dynamic Extensionを用いた厳密な線形化
+</h4><p>　倒立振子系は座標変換や入力変換などのフィードバック変換では厳密な線形化ができないシステムとしてよく知られている．
+しかし，鉛直方向の入力も考慮した縦横倒立振子系では，Dynamic Extension を用いることでシステムを厳密に線形化できることが示された．
+</p><p><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/BMFkR-cQikQ" width="560"></iframe>
+</p><h5>投稿論文・学会発表
+</h5><ul><li>宮野竜也，中浦茂樹，三平満司，&quot;鉛直・水平方向の入力を持つ倒立振子系の非線形制御実験&quot;， 第36回制御理論シンポジウム論文集，計測自動制御学会，2007
+</li><li>阿部行成，中浦茂樹，三平満司，&quot;上下運動を伴う倒立振子系の非線形制御&quot;， 第9回「運動と振動の制御」シンポジウム講演論文集，2005
+</li><li>K. Sekiguchi, M. Sampei, S. Nakaura. Exact Linearization of Two-Input Affine Systems via the Dynamic Extension Based on the Relative Degree Structure, SICE Journal of Control, Measurement, and System Integration, The Society of Instrument and Control Engineers (SICE), Vol. 4, No. 2, pp. 153-162, Mar. 2011. 
+</li><li>Kouhei Tahara, Masao Kanazawa, Kazuma Sekiguchi, Mitsuji Sampei. Experiments of Inverse Optimal Control Problem for Inverted Pendulum with Horizontal and Vertical Inputs, the 50th Conference on Decision and Control and European Control Conference 2011, Proceedings of the 50th IEEE Conference on Decision and Control and European Control Conference 2011, IEEE, pp. 284-289, Dec. 2011. 
+</li><li>Kazuma Sekiguchi, Kouhei Tahara, Mitsuji Sampei. Experimental Study of Stabilization of the Inverted Pendulum with Horizontal and Vertical Movement Via Exact Linearization Based on the Dynamic Extension, 2010 IEEE Multi-Conference on Systems and Control, Proceedings of the 2010 IEEE Multi-Conference on Systems and Control, pp. 1433-1438, Sep. 2010. 
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

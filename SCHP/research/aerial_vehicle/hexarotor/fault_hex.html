@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>ロータ故障時のヘキサロータ型UAVのリカバリー可能性解析 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 本研究では，6つのロータを有するヘキサロータ型UAVのFault Tolera..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_110">
+
+<div class="articleHeader">
+<h2>ロータ故障時のヘキサロータ型UAVのリカバリー可能性解析</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Fault Tolerant Control.html">Fault Tolerant Control</a>, <a href="/SCHP/tags/UAV.html">UAV</a>, <a href="/SCHP/tags/ヘキサロータ.html">ヘキサロータ</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img align="bottom" alt="noryaw.png" src="/SCHP/research/aerial_vehicle/hexarotor/noryaw.png" style="bottom:0px;" width="550">
+</p><p>本研究では，6つのロータを有するヘキサロータ型UAVのFault Tolerant Control (FTC) を題材とし，耐故障性に優れた新たな構造の提案を行う．
+さらに，ヘキサロータ型UAVの耐故障性に関する議論を一般化し，任意の数のロータを有するマルチロータ型UAVのホバリング可能性を機体の幾何学的な特徴により分析する手法を提案する．
+</p><p>マルチロータ型UAVは，複数のロータの推力により飛行を達成する無人航空機であり，実用性が高い反面，故障時に重大な事故を引き起こす可能性がある．
+関連研究では，特殊な構造のヘキサロータ型UAVを用いてロータ故障時のFTCを達成しているが，特定の故障パターンに対応できない，FTC時に機体が傾く等の問題点がある．
+そこで本研究では，これらの問題点を解決する新たな構造のヘキサロータ型UAVを提案することを目的とする．
+まず，一般的なマルチロータ型UAVの動力学モデルを導出し，様々な構造のヘキサロータ型UAVを定義する．
+特に，正六角形の頂点にロータを配置した最も一般的な構造のヘキサロータ型UAVをNormal Hexrotorと定義し，回転対称にロータを配置したYaw-Twisted Hexrotor，2Y Yaw-Twisted Hexrotor，飛行中に機体形状を変形することのできるVariable CoM Hexrotor，Transformable Hexrotorを新たに提案する．
+つぎに，マルチロータ型UAVシステムに対して平衡点が存在し，かつその線形近似システムが可制御であることをホバリング可能と定義し，さらにロータ故障後のマルチロータ型UAVがこの性質を満たすことをリカバリー可能と定義する．
+これに基づいて，本研究で考える様々なヘキサロータ型UAVのリカバリー可能性を解析し，Normal Hexrotorはリカバリー可能ではないこと，新たに提案したヘキサロータ型UAVがリカバリー可能となることを示す．
+さらに，数値シミュレーションにより解析結果の妥当性を確認する．
+最後に，任意の数のロータを有するマルチロータ型UAVのホバリング可能性を，ロータ位置・回転方向・機体重心位置の関係性により判定する手法を新たに提案する．
+</p><h4>投稿論文・学会発表
+</h4><p>松田 錬磨，伊吹 竜也，三平 満司，&quot;ヘキサロータ型UAVのロータ故障に対するリカバリー可能性と機体重心位置の解析&quot;, 第5回制御部門マルチシンポジウム, 2018. 
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

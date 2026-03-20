@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>衝突をともなったDenguribotの転がり運動制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 本研究ではリンクの輪郭が円弧の曲面で形成されたリンクで構成されるAcrobot..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_34">
+
+<div class="articleHeader">
+<h2>衝突をともなったDenguribotの転がり運動制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Acrobot.html">Acrobot</a>, <a href="/SCHP/tags/Denguribot.html">Denguribot</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/経路計画.html">経路計画</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="RollingAcrobot.png" height="257" src="/SCHP/research/acrobot/denguribot/RollingAcrobot.png" width="465">
+</p><p>本研究ではリンクの輪郭が円弧の曲面で形成されたリンクで構成されるAcrobotのモデルを構築し，そのリンク形状を利用して，連続的な転がりを行うことを目指す．
+本研究の制御対象は他のAcrobotの制御問題と同様に劣駆動であるということに加え，リンクと地面の間に転がり拘束を有し，接触点によってモデルが異なるためモデルの切り換えも必要とする．
+このため，全てのモデルに共通した制御則の構築は困難である．
+そこで，一連の運動を静止した状態から転がりに必要なエネルギーを稼ぐ起き上がり運動と，そこから連続的な転がりを行う転がり運動に分け，エネルギー的な観点による考察の結果から制御則を構築する．
+起き上がり運動では，うまくリンクを揺り動かすことでエネルギーを増加させていくこと目標とした．
+転がり運動では重心が下がりながら転がる場合(downward phase)と上がりながら転がる場合(upward phase)で制御目標をさらに分け，まずdownward phaseではロボットの持つ全エネルギーを大きくすることを目標とした．
+またupward phaseでは全エネルギーを大きくしながら持続的な転がり運動を行うことは困難であるので運動エネルギーの減少を抑えることを目標とした．
+以上の場合について，各目標を達成しうる出力関数を設定し，出力零化制御を適用して，シミュレーションにより有効性を示した．
+</p><p>しかしながら，upward phaseでの制御の結果，リンクが地面に衝突することが避けられない状態となってしまった．
+衝突が起きると運動エネルギーが減少してしまうため，持続的な転がり運動を妨げてしまう．
+そこで，衝突時のエネルギーについて解析を行い，衝突時にエネルギーの減少を抑える方法，エネルギーの減少は大きくなるが衝突後のエネルギーを大きくする方法をシミュレーションにより明らかにした．
+</p><p>最後に，以上の結果から別々に考えた制御をあわせて，運動を行うための拘束力の条件を考慮してパラメータの調整を行い，静止した状態から起き上がり運動を行ない，そこから持続的転がり運動ができることをシミュレーションにより確認した．
+</p><p>また，持続的転がり運動を実験環境で実現するために，エネルギーに着目した制御とは別に角度に関する経路と重心に関する経路をDenguribotの接地点の変化に伴うmodelの切り替わり条件を満たすように設計し，これを出力関数に設定する方法が提案された．また，安定した周期運動を実現するために衝突時の姿勢をDenguribotが保持しているエネルギーを変化させることで，安定した転がり運動ができることをシミュレーションにより確認し，実験環境で実現した．
+</p><h4>公開動画
+</h4><p><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/82P5N0qsiwY" width="420"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/DspFxvAjoQA" width="420"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/vy4b0tMs850" width="420"></iframe>
+</p><h4>投稿論文・学会発表
+</h4><ul><li>吉田峰由生，五十部晋平，中浦茂樹，三平満司， &quot;Denguribotの転がり運動の制御実験&quot;， 第11回運動と振動の制御シンポジウム-MoViC2009-，2009
+</li><li>Shimpei ISOBE, Shigeki NAKAURA and Mitsuji SAMPEI, &quot;Continuous Rolling Motion Control for the Acrobot Composed of Rounded Links&quot;, Proceedings of the 47th IEEE Conference on Decision and Control, 2008
+</li><li>Shimpei ISOBE, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;A Rolling Motion Control for Acrobot Composed of Rounded Links&quot;, Proceedings of the SICE Annual Conference 2008, The Society of Instrument and Control Engineering, 2008
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

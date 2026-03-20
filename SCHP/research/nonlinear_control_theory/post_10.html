@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>相対次数構造に着目したゼロダイナミクスの設計 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="部分フィードバック線形化では完全な線形化ができないシステムに対して出力を決め，そ..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_29">
+
+<div class="articleHeader">
+<h2>相対次数構造に着目したゼロダイナミクスの設計</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/サブシステム.html">サブシステム</a>, <a href="/SCHP/tags/ゼロダイナミクス.html">ゼロダイナミクス</a>, <a href="/SCHP/tags/入出力線形化.html">入出力線形化</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p>部分フィードバック線形化では完全な線形化ができないシステムに対して出力を決め，その出力に対し入出力線形化を行う．
+さらに出力を状態とするように状態変数変換を行う非線形システムに対する代表的手法である．
+これによりシステムは可観測部分と不可観測部分に分けられ，可観測な部分は可制御で線形なサブシステムに変形できる．
+線形サブシステムは可制御なので自由に動特性を定めることができる．
+そのためシステム全体のダイナミクスを決定するには不可観測部分にあたる非線形サブシステムが重要になる．
+</p><p>このサブシステムが平衡点で安定なものや，望ましい発散性能をもつなど目的のダイナミクスとなるなら，線形化した可観測部分の状態を零にする（出力零化制御）ことで，システム全体を不可観測部分の持つ目的のダイナミクスにできる．
+出力零化した結果残る，不可観測部分に対応したダイナミクスをゼロダイナミクスという．
+このゼロダイナミクスを望ましいものに設計することで，非線形システムを線形システムの枠組みだけで扱えるようになる．
+本研究室ではゼロダイナミクスとして不安定なものを選ぶことによって鉄棒運動における大車輪運動や二足走行といったダイナミックな運動を実現している．
+</p><p>このように出力零化制御によって目的のダイナミクスを得るためには，ゼロダイナミクスが適した動特性を持つように出力関数を設計する必要がある．
+しかし，この出力関数を設計するシステマティックな手法は確立されていない．
+部分線形化を用いている実用例では，いずれにおいても出力関数は物理構造から直感的に選ばれたり，システムに強く依存した形のものが選ばれてきた．
+部分フィードバック線形化という手法には，望みの特性をもつゼロダイナミクスを生成する，出力関数が見つかるシステムにしか適用できない問題がある．
+</p><p>そこで本研究は，部分フィードバック線形化のゼロダイナミクスとして，安定なもの，特殊な発散性能を示すものなどを自由に選ぶために必要となる出力関数の設計指針を示すことを目的とする．
+そのために本論文では，システムにリー代数を用いて定まるDistributionの列を用いて，involutive性，正則性に関するフィードバック不変な定数を導く．
+この定数を用いて相対次数を分類し，それぞれの相対次数に対し出力関数の候補を示し，それらを用いて出力関数の取り得る形を表す．
+</p><p>このようにして得られる出力関数から生成されるゼロダイナミクスをそれぞれ解析することで，システムとして望みの動特性をもつ出力関数のクラスを決定できる．
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Kazuma SEKIGUCHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Parameterization of Output Function for SISO Systems&quot;, Proceedings of the SICE Annual Conference 2008, The Society of Instrument and Control Engineering, 2008
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

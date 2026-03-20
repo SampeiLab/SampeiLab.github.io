@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>時間軸変換を用いた不連続制御器の応答改善 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　車両系の位置制御問題や宇宙ロボットの姿勢制御問題における制御対象は，ノンホロ..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_37">
+
+<div class="articleHeader">
+<h2>時間軸変換を用いた不連続制御器の応答改善</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Astolfi.html">Astolfi</a>, <a href="/SCHP/tags/Chained-Form System.html">Chained-Form System</a>, <a href="/SCHP/tags/時間軸状態制御形.html">時間軸状態制御形</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="TimeScaleResponse.png" height="200" src="/SCHP/research/nonlinear_control_theory/time_state_control_form/TimeScaleResponse.png" width="344">
+</p><p>　車両系の位置制御問題や宇宙ロボットの姿勢制御問題における制御対象は，ノンホロノミック拘束と呼ばれる特殊な力学的拘束を受けるシステムとなり，これらのシステムは理論的に制御しづらいシステムであることが知られています．
+このようなノンホロノミックシステムのひとつの正準形としてchained system が挙げられ，このchained system の安定化に対してこれまで様々な制御手法が提案されています．
+</p><p>　そのひとつとしてAstolfi の不連続制御器が挙げられます．
+しかし，Astolfi の不連続制御器には初期値の値によって状態の収束時に大きなオーバーシュートが生じてしまうという実用上の問題が存在していました．
+</p><p>　そこで，本研究ではノンホロノミックシステムの正準形のひとつであるchained system に対して，Astolfi の制御器を含む不連続制御器を対象とし，これらを時間軸状態制御形と呼ばれる形式で再解釈しなおすことで不連続制御器に対する応答改善を実現した．
+またこの手法の有効性をシミュレーションによって確認している．
+</p><h5>投稿論文・学会発表
+</h5><ul><li>相模毅，伊藤然一，中浦茂樹，三平満司， &quot;時間軸変換を用いたChained Systemの不連続制御-入力制限への対処と吸収領域の解析を利用した応答改善-&quot;, 計測自動制御学会論文集，計測自動制御学会，2008
+</li><li>Norikazu ITO, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Discontinuous Controller Designs for Chained System by Considering Time Scale Transformation&quot;, Proceedings of the 46th IEEE Conference on Decision and Control, 2007
+</li><li>Tsuyoshi SAGAMI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Discontinuous Controller Design of the Chained Form System Via Time State Control Form&quot;, Proceedings of the 45th IEEE Conference on Decision and Control, 2006
+</li><li>相模毅，三平 満司，中浦茂樹， &quot;入力を含む座標変換による出力フィードバック制御&quot;， 第35回計測自動制御学会制御理論シンポジウム，2006
+</li><li>Tsuyoshi SAGAMI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Discontinuous Controller Design and Analysis for the Chained Form System via Time State Control Form&quot;, Proceedings of the 8th International Conference on Motion and Vibration Control, 2006
+</li><li>北村悠爾，中浦茂樹，三平満司， &quot;時間軸変換の概念を用いたAstolfiコントローラの改善に関する研究&quot;， 第48回システム制御情報学会研究発表講演会，2004
+</li><li>Mitsuji SAMPEI, &quot;A Control Strategy for a Class of Non-Holonomic System -Time-State Control Form and its Application-&quot;, The 33rd IEEE Conference on Decision and Control, 1994
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

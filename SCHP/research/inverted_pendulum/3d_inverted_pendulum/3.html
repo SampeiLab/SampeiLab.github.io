@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>3次元倒立振子の安定化制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="並進加速度を入力とした3次元倒立振子 　従来までの2次元平面内で考えられてきた倒..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_39">
+
+<div class="articleHeader">
+<h2>3次元倒立振子の安定化制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/3次元倒立振子.html">3次元倒立振子</a>, <a href="/SCHP/tags/双線形システム.html">双線形システム</a>, <a href="/SCHP/tags/双線形近似.html">双線形近似</a>, <a href="/SCHP/tags/逆最適制御.html">逆最適制御</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<h4>並進加速度を入力とした3次元倒立振子
+</h4><p><img alt="3DPendulum.jpg" height="534" src="/SCHP/research/inverted_pendulum/3d_inverted_pendulum/3DPendulum.jpg" width="300">
+</p><p>　従来までの2次元平面内で考えられてきた倒立振子モデルを3次元モデルに拡張し，鉛直方向と2つの水平方向の入力の3入力を用いた倒立振子系の安定化制御を行う．
+このとき2次近似を用いて双線形システムに変換することで，従来より鉛直方向の入力の効果がより明確になるようにした．
+この双線形システムに対して逆最適制御則を構築し，制御パフォーマンスを検証した．
+</p><p>動画1：初期角度が小さい場合<br>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/l561Nu8MhD8" width="420"></iframe>
+</p><p>動画2：初期角度が大きい場合<br>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/EJVIOJreruI" width="420"></iframe>
+</p><h4>クアッドロータのモデルを導入した3次元倒立振子
+</h4><p><img alt="model.png" class="mt-image-center" src="/SCHP/research/inverted_pendulum/3d_inverted_pendulum/model.png" style="text-align: center; display: block; margin: 0 auto 20px;" width="300">
+</p><p>3次元倒立振子に対する制御則を実験により検証するため，クアッドロータと呼ばれるプロペラを4枚有する飛行ロボットを用いることを考える．
+クアッドロータを用いた様々な制御問題では，機体上向きの加速度と3方向への角速度を機体への入力とすることが多い．
+そこで本研究ではこれにのっとって3次元倒立振子のモデルを再構築し，この場合でも従来の手法と同様の手続きによって安定化制御則が構築できることを示した．
+シミュレーション結果として，双線形近似システムを用いることで機体上向きの加速度入力を使った振子の安定化が確認でき，それによりLQ最適制御と比較して安定化領域が拡大したことを示した．
+</p><p>動画 :<br>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/byg4OmK71Tk" width="420"></iframe>
+</p><h4>実機実験
+</h4><p>クアッドロータ，振子，モーションキャプチャカメラ，計算機を用いて実機実験環境を構築した．
+構築した実験環境では,モーションキャプチャカメラによって機体・振子の位置・角度情報を検出し,これらをもとに計算機で入力の計算を行い,入力信号を無線機でクアッドロータに伝送する.
+本研究では，上述の双線形システムに対する逆最適制御則を用いた手法と従来の線形近似システムに対する最適制御を用いた手法による実験のパフォーマンスの違いを確認するために実験を行った．
+その際，位置の偏差を含む拡大系を構成し，そのシステムに対して設計したコントローラを実験には用いた．
+以下の動画から，線形近似システムに対する最適制御手法では水平方向のみの動きで振子を安定化させているのに対し，双線形近似システムに対する逆最適制御手法を用いた実験では水平方向の動作に加えて鉛直方向の動作も用いて振子を安定化させていることがわかる．
+</p><h3>線形近似システムに対する最適制御則を用いた実験
+</h3><p>動画 :<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/Eak8j2k_n_Q" width="560"></iframe>
+</p><h3>双線形近似システムに対する逆最適制御則を用いた実験
+</h3><p>動画 :<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/O1ni-bYKWnM" width="560"></iframe>
+</p><h4>投稿論文・学会発表
+</h4><ul><li>Tatsuya Ibuki, Yuichi Tadokoro, Yuki Fujita, Mitsuji Sampei. &quot;3D Inverted Pendulum Stabilization on a Quadrotor Via Bilinear System Approximations&quot;, IEEE Multiconference on Systems and Control, 2015
+</li><li>田所 祐一，藤田 優稀，伊吹 竜也，三平 満司，&quot;クアッドロータモデルを用いた3次元倒立振子の安定化制御&quot;，計測自動制御学会 第2回 制御部門マルチシンポジウム, 2015.
+</li><li>Y. Fujita, T. Ibuki, and M. Sampei, &quot;Bilinear System Approximation-based Inverted Pendulum Stabilization in Three Dimensions&quot;, Proc. of SICE Annual Conference 2014. 
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

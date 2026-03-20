@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>4リンク3アクチュエータロボットの跳躍制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　動物の動歩行の一形態として分類される「跳躍歩容」と呼ばれる動作パターンを模倣..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_40">
+
+<div class="articleHeader">
+<h2>4リンク3アクチュエータロボットの跳躍制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/4リンク3アクチュエータロボット.html">4リンク3アクチュエータロボット</a>, <a href="/SCHP/tags/ゼロダイナミクス.html">ゼロダイナミクス</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/可変拘束性.html">可変拘束性</a>, <a href="/SCHP/tags/跳躍運動.html">跳躍運動</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="4linkRobot.png" height="524" src="/SCHP/research/4-link_jumping_robot/4linkRobot.png" width="300">
+</p><p>　動物の動歩行の一形態として分類される「跳躍歩容」と呼ばれる動作パターンを模倣した脚式歩行ロボットの研究は近年盛んに行われている．
+「跳躍歩容」の特徴は，その歩容において支持脚が完全に地面から離れる状態と，
+地面に足が接地した状態があることであり，それぞれの状態においては「角運動量保存則」，
+「足先位置での拘束」が働く．
+このように「跳躍歩容」は一連の動きの中で拘束の変化する，
+制御論的に困難な運動である．
+</p><p>　跳躍歩容研究の対象として有名なものにAcrobotがある．
+Acrobotは人間を最も単純化したモデルとして提案されたものであるが，
+動きの自由度が低く，
+技巧的な動作を実現する理論の構築という点では制御対象としてAcrobotを扱うことには限界がある．
+そこで本研究では，
+制御対象として4リンク3アクチュエータロボットを扱う．
+このシステムはAcrobotに比べてより詳細に人間をモデル化したものになっており，
+Acrobotが1入力であるのに対し，
+本システムは多入力であるため，
+Acrobotに比べてより技巧的な動作や複雑な制御が可能になると考えられる．
+その一方で，本システムは入力の数よりも状態の数が多い劣駆動システムなので，
+制御は本質的に困難な問題となる．
+</p><p>　本研究ではこの4リンク3アクチュエータロボットに対し，
+システムの持つ劣駆動性・可変拘束性を考慮した上で，
+人間のような跳躍動作を実現するような制御則を構築することを目的とする．
+制御戦略として，実際の人間の跳躍動作を観察することにより，
+その特徴を実現するような制御則を構築する．
+特に重心と重心回りの角運動量に着目した制御則を構築することにより，
+それらを陽に考慮した跳躍動作をシミュレーション上で実現した．
+また実機による制御実験を行い，提案した制御則の有効性を示した．
+</p><h5>しゃがみ込み跳躍制御
+</h5><p><img alt="Squat_Jumping.png" height="497" src="/SCHP/research/4-link_jumping_robot/Squat_Jumping.png" width="400">
+</p><p>　しゃがみ込むことにより，
+直立に近い姿勢からでも跳躍が可能となり，
+しゃがみ込むエネルギーを利用した高効率な跳躍運動が実現された．
+</p><p><img alt="Squat_Path.png" height="497" src="Squat_Path.png" width="400">
+<img alt="Squat_keiro.png" height="497" src="Squat_keiro.png" width="400">
+</p><p>　また，しゃがみ込み跳躍の制御として，
+総重心が追従すべき経路の探索及び設計をおこなった．
+これにより人間が直立姿勢から跳躍をおこなう場合の重心の経路計画を陽に評価することが可能となった．
+</p><h5>非駆動関節拘束による不安定なゼロダイナミクスを用いた垂直跳躍制御
+</h5><p>　つま先蹴りによる跳躍運動は劣駆動な状態における運動であるため，
+軌道設計法などによって制御することはできない．
+そこで，出力零化制御による不安定なゼロダイナミクスによって運動を制御することが考えられるが，
+この場合，離陸までの短い時間内に出力関数の零化が厳密に達成されるかといった新たな問題が生じる．
+</p><p>　離陸までの間に零化を達成しながらも静止した状態からの運動制御を行うために，
+本研究では非駆動な関節を拘束することによって，
+不安定なゼロダイナミクスに沿ってそのほかの関節角が動き出すことに着目する．
+これに加えて，重心を鉛直線上に保ちつつ各関節角を不安定なゼロダイナミクスに同期させることによって，
+つま先蹴りを利用した垂直跳躍運動が達成される．
+</p><h4>動画
+</h4><ul><li>経路計画によるしゃがみ込み跳躍<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/VCyBlQJ2Ccs" width="420"></iframe>
+</li><li>不安定なゼロダイナミクスを用いた跳躍
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/9tNALtCaJP0" width="420"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/wZfUrYMsnMA" width="420"></iframe>
+</li><li>実験<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/k2siFP9j69U" width="420"></iframe>
+</li></ul><h4>投稿論文・学会発表
+</h4><ul><li>Tatsuya Ibuki, Naoki Endo, Mitsuji Sampei. &quot;Squat Jumping Motion Control for 4-link Robots by Trajectory Planning of the Center of Mass&quot;, SICE Annual Conference, 2015
+</li><li>遠藤 直輝, 伊吹 竜也, 三平 満司, &quot;重心軌道計画を用いた4リンク3アクチュエータロボットの跳躍制御&quot;, 第14回 「運動と振動の制御」シンポジウム, 2015
+</li><li>石川温人，伊吹竜也，三平満司，&quot;非駆動関節拘束によるゼロダイナミクスを用いた4-link Robotの跳躍制御&quot;， 第1回制御部門マルチシンポジウム，計測自動制御学会，2014
+</li><li>加藤大地，関口和真，三平満司，&quot;4リンク3アクチュエータロボットの跳躍制御&quot;， 第12回「運動と振動の制御」シンポジウム，日本機械学会，2011
+</li><li>遠藤 直輝, 伊吹 竜也, 三平 満司, &quot;重心軌道計画を用いた4リンク3アクチュエータロボットの跳躍制御&quot;, 第14回 「運動と振動の制御」シンポジウム, 日本機械学会, 2015
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

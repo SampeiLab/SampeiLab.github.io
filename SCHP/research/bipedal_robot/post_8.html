@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>人間型ロボットの走行制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="出力零化制御を用いた人間型ロボットの走行制御 　近年ロボット技術の進歩はめざまし..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_27">
+
+<div class="articleHeader">
+<h2>人間型ロボットの走行制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Bipedal Robot.html">Bipedal Robot</a>, <a href="/SCHP/tags/Q-learning.html">Q-learning</a>, <a href="/SCHP/tags/人間型ロボット.html">人間型ロボット</a>, <a href="/SCHP/tags/入出力線形化.html">入出力線形化</a>, <a href="/SCHP/tags/走行運動.html">走行運動</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<h4>出力零化制御を用いた人間型ロボットの走行制御
+</h4><p><img alt="BipedalRunning.jpg" height="679" src="/SCHP/research/bipedal_robot/BipedalRunning.jpg" width="1254">
+</p><p>　近年ロボット技術の進歩はめざましく，これまでに様々な研究が行われてきた．
+特に人間型ロボットの歩行・走行制御に関しても従来の車輪型ロボットと比較して特に不整地面での高い移動性が注目を浴び，多くの研究が行われ，実機での実現がなされている．
+しかし従来の研究では人間の走行と比較して不自然な走行になっている．
+これは安定な走行のため，足裏の全面を常に接地させて走っているためであり，踵からの一点での着地や，つま先での一点での蹴り上げを陽に行うことができないためである．
+より人間らしい走行のため，当研究室では，足首関節を持つ７つのリンクを持つ平面内で運動する人間型ロボットに対して，人間の実際の走行動作の観察から，ある特徴を見出し，その特徴を実現するような出力関数を設計，そして零化することにより，人間のようなダイナミックな跳躍動作を実現する制御器を設計している．
+</p><p>当研究室では出力零化制御にあたり，以下の２つの出力関数構造を提案している．
+</p><ol><li><p>足首拘束と腰軌道に着目した出力関数構造による制御
+</p><p>　人間らしい動作には，足首関節を陽に用いた走行が必要である．
+これまで，足首関節は単に「安定な走行のための役割」として使用されており，「地面を蹴り上げる」といった陽な使用はされていなかった．
+しかし，陽な跳躍のためには足首に大きなトルクを必要とする問題がある．
+そこで，当研究室では足首関節の拘束を適切に利用することで陽な跳躍とトルクの軽減の両者を実現する制御方策の提案を行った．
+また，足首拘束以外にも，人間の腰軌道や上半身の角度などの直感的にチューニングしやすい特徴量を出力関数構造として採用することにより，人間らしい走行動作を実現する制御器の設計を行った．
+</p><p>　設計された出力関数は人間の観察からの解釈の容易な関数であるが，出力関数のパラメータの設計は，モデルが多次元であるために難しく，かつ値の最適性が議論できていない問題点があった．
+そこで，新たにQ-learningを導入し，パラメータを学習によって最適化する出力関数の設計体系を提案した．
+その結果，ランダムな傾斜を持つ不整地にもロバストな制御器を設計でき，更に着地時に適切なインパルス入力を印加することによって，不整地の傾斜角依存のダイナミクスの変動を打ち消し，起伏の激しい不整地での走行に成功した．
+</p></li><li><p>循環座標回りの角運動量と同期する出力関数構造による制御
+</p><p>　腰軌道などに着目した出力関数構造の問題点として，直感的には解釈が容易であっても，数学的に複雑な出力関数構造であることから，出力零化後のゼロダイナミクスが解析的に求まらないことが挙げられる．
+そこで，新たな出力関数構造として，循環座標回りの角運動量と，ロボットの各関節角度を同期させる出力関数構構を提案した．
+循環座標回りの角運動量は相対次数が３となり，ゼロダイナミクスの低次元化に役立つだけでなく，その軌道自体が人間の走行している時の関節のダイナミクスに酷似しているという物理的な仕様も満たしている特殊な量である．
+この同期構造によっても，足首を陽に用いて地面を蹴り上げるような人間らしい走行を達成すると共に，走行速度の初期値誤差や不整地の傾斜角度に対して，既存の出力関数構造よりもロバストな出力関数構造を設計することに成功した．
+また，ゼロダイナミクスが解析的に求まるという利点を活かし，ゼロダイナミクスの平衡点近傍の解析で，系が漸近安定・周期解・不安定となるような出力関数のパラメータを選択することによって，走行からの停止や，再走行の動作を簡易なパラメータの変更によって実現する制御器を構築した．
+また，発展として，一般の非線形メカニカルシステムのクラスに対して，この同期構造を応用し，系が漸近安定・安定・不安定になる条件を導出し，人間型ロボットだけではない広いクラスの非線形システムに応用のできる制御方策を提案した．
+</p></li></ol><h4>公開動画
+</h4><p>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/OuiuW3t-kIw" width="420"></iframe>
+  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/pOWONJEXR3I" width="420"></iframe>
+  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/a88JuKVqZhg" width="420"></iframe>
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Keisuke NAKAMURA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Control of bipedal running by the angular-momentum-based synchronization structure&quot;, Proceedings of IEEE International Conference on Robotics and Automation, 2010
+</li><li>Yasuhiro AMAGATA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;The Running of Humanoid Robot on Uneven Terrain utilizing Output Zeroing&quot;, Proceedings of the SICE Annual Conference 2008, The Society of Instrument and Control Engineering, 2008
+</li><li>Kohei SUSEKI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;The running control of humanoid robot utilizing Q-learning and output zeroing&quot;, Proceedings of the 46th IEEE Conference on Decision and Control, 2007
+</li><li>Toshikazu SHIMIZU, Shigeki NAKAURA, Mitsuji SAMPEI, &quot;The Control of a Bipedal Running Robot using Rotation of the Ankle Joint based on Output Zeroing&quot;, Proceedings of the 45th IEEE Conference on Decision and Control, 2006
+</li><li>Ryusuke OHATA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;A Synthesis of Bipedal Runner by Output Zeroing&quot;, Proceedings of the 2006 IEEE International Conference on Control Applications, 2006
+</li><li>清水寿一，中浦茂樹，三平満司， &quot;足首関節の効果を利用した出力零化制御による人間型ロボットの走行に関する研究&quot;， 第6回計測自動制御学会制御部門大会，2006
+</li><li>大畠龍介，中浦茂樹，三平満司， &quot;出力零化制御による人間型ロボットの走行に関する研究&quot; 第5回計測自動制御学会制御部門大会，2005
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

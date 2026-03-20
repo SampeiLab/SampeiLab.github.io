@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>状態依存型係数表現の自由度に着目した双線形システムに対する非線形H∞制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="本研究は双線形システムに対する非線形H∞ 制御問題について考える. 非線形H∞ ..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_69">
+
+<div class="articleHeader">
+<h2>状態依存型係数表現の自由度に着目した双線形システムに対する非線形H∞制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/ハミルトンヤコビ不等式.html">ハミルトンヤコビ不等式</a>, <a href="/SCHP/tags/双線形システム.html">双線形システム</a>, <a href="/SCHP/tags/非線形H∞制御.html">非線形H∞制御</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p>本研究は双線形システムに対する非線形H∞ 制御問題について考える.
+非線形H∞ 制御の解はHamilton-Jacobi 不等式(HJI) と呼ばれる偏微分不等式の解に帰着されることが知られている.
+このHJI を解析的に解くことは困難であるため,HJI の数値解法の1 つとして,状態依存型リカッチ不等式(SDRI) による
+解法が研究されている.このとき,HJI をSDRI に変換する際は,非線形システムに対して状態依存型係数表現(SDC 表現) を用いている.
+このSDC 表現には表現の自由度が存在するため,SDRI の可解性はSDC 表現の選択に大きく依存することが分かっている.
+</p><p>本研究前半では,非線形システムの1 クラスである双線形システムに対して,
+SDC 表現の自由度が制御系設計に与える影響について考察する.
+まず,先行研究で提案されているSDC の自由度を表現する手法を双線形システムに対して適用し,
+自由度を含むSDRI を導出する.通常,リカッチ不等式は線形行列不等式に変換されることで,
+計算機による数値計算が可能となる.しかし,自由度を含むSDRI は双線形行列不等式となるため,
+解と自由度を同時に求めることは困難である.そこで,解と自由度を交互に固定することで,
+線形行列不等式として SDRIを計算し,制御器を設計する.
+さらに,数値例を通して,自由度を考慮しない SDRI で得られた制御器と比較し,SDC 表現の自由度が
+制御パフォーマンスに与える影響について考察する.
+</p><p>本研究後半では,双線形H∞ 制御問題に対して,ロバスト性を保証する状態依存型の出力行列の構造について考察する.
+具体的には先行研究で提案されている逆最適制御の概念に基づき,これを双線形H∞ 制御問題へ適用することを試みる.
+はじめに,原点におけるリカッチ不等式を解くことにより,原点の安定性とロバスト性を保証する解を求め,
+原点以外の状態におけるリカッチ不等式へ適用し,原点以外のSDRI が満たすべき状態依存型の出力行列を導出する.
+それにより,原点近傍では線形H∞ 制御と等価であり,原点近傍外では線形の制御則に比べ,
+より状態を抑えるような出力の構造となっていることを示す.
+最後に数値例として,双線形システム表現可能な,縦横2 自由度倒立振子システムを取り挙げ,
+シミュレーションによる有効性の検証と,物理的考察を行う.
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

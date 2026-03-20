@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>フラフープの持続回転運動 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="　フラフープは広く知られている遊具の一つであり，一度は体験したことがある人も多い..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_25">
+
+<div class="articleHeader">
+<h2>フラフープの持続回転運動</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/フラフープ.html">フラフープ</a>, <a href="/SCHP/tags/入出力線形化.html">入出力線形化</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/転がり拘束.html">転がり拘束</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p>　フラフープは広く知られている遊具の一つであり，一度は体験したことがある人も多いだろう．
+しかし，フラフープを回す動作というものは，初心者には難しく，ある程度慣れが必要である．
+それは，フラフープ運動には制御を難しくする特徴が多く含まれているからである．
+</p><p>　主な特徴の一つはフープが人間の胴に対して転がりながら回っていること、そして，そのフープを腰の運動だけで制御しなければならないことなどが挙げられる．
+これらはそれぞれ，非ホロノミック拘束と劣駆動性と呼ばれる制御に不利な特性と解釈することができる．
+さらに，フープを持続的に回転させながらかつ，フープが落ちないように高さを腰の位置で保つという複雑なタスクも秘めていることもフラフープ運動の制御を難しくする特徴と言える．
+</p><p>　ところで，従来研究ではフラフープを水平面上を回る振子と見なしてモデリングと運動解析がなされてきた．
+その結果，フラフープは前後方向の加震だけで落下することなく水平面上を回り続けることがわかっている．
+しかし，回転を続けながら上昇または落下をするフープの運動を表現するにはフープが胴に対して転がるという特徴をモデルで表す必要がある．
+</p><p>　本研究室では人間の胴体をポールに見立てることで転がり拘束を考慮したフラフープの新しいモデルを提案した．
+そして，胴体であるポールの並進運動を制御入力として，フープを持続的に回転させながら同時にフープの高さを望みの値に制御する方法を研究している．
+ここで，フープが落ちないように水平面内に保つだけでなく．
+望みの高さに制御するという制御目標はフープとポールの間の転がり拘束を考慮しなければできないことでもある．
+</p><p>　フープがポールから受ける転がり拘束を導出するために，フープの姿勢とそのときの接点の運動の関係を曲面論から導いた．
+すると，転がり拘束は平面を転がる円盤が受ける非ホロノミック拘束と等価になることがわかった．
+さらに，その転がり拘束から，回転し続けるフープはその姿勢を制御することでフープの高さを望みの値に制御できることがわかり，制御則の提案を行った．
+</p><p>　そこで，出力零化制御によってフープの姿勢を制御することでフープの高さを望みの値に制御すること提案した．
+しかし，このときフープの姿勢と回転角速度を同時に制御することができないという問題が起こった．
+つまり，出力零化制御によってフープの姿勢を制御することでフープの回転がころされる場合が考えられる．
+そのため，フープの姿勢制御が角速度の振る舞いにどのような影響を与えるかを調べる必要がある．
+</p><p>　これを解析的に行うのは困難なため、出力零化が達成されていると仮定し，数値シミュレーションによって解析を行った．
+すると，出力零化が達成しているとき，フープの高さが望みの値に収束するまでフープの回転角速度は必ず加速または減速をすることがわかった．
+また，同時にフープの回転角速度が増加する条件，そして，減少する条件がわかった．
+</p><p>　そこで，少なくともフープの回転が止まってしまうことを避けるため、回転角速度が増加する条件を満たす制御戦略を提案した．
+これは，上に述べたフープの回転角速度が増加する条件を満たしたのち出力零化を達成させるというものだ．
+このとき，出力零化達成後のフープの回転角速度は出力零化がはじめて達成されたときよりも大きな値となる．
+</p><p>　以上の制御則，および制御戦略によってフープの持続回転と高さの制御を同時に実現できると期待できる．
+提案されたこれらのモデルの有効性，制御則および制御戦略の有効性はシミュレーションによって示された．
+</p><h4>公開動画
+</h4><p>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/ova38Z03EF8" width="420"></iframe>
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

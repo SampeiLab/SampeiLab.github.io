@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>着地制御のための全駆動ヘキサロータの未知ダイナミクス学習 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 研究概要 本研究では，全駆動ヘキサロータの着地制御実現に向けて，着地動作時に生..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_107">
+
+<div class="articleHeader">
+<h2>着地制御のための全駆動ヘキサロータの未知ダイナミクス学習</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/UAV.html">UAV</a>, <a href="/SCHP/tags/ガウス過程回帰.html">ガウス過程回帰</a>, <a href="/SCHP/tags/ヘキサロータ.html">ヘキサロータ</a>, <a href="/SCHP/tags/学習.html">学習</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img align="bottom" alt="hexrotorIGE2.png" src="/SCHP/research/learning/gaussian_process_regression/hexrotorIGE2.png" style="bottom:0px;" width="300">
+</p><h4>研究概要
+</h4><p>本研究では，全駆動ヘキサロータの着地制御実現に向けて，着地動作時に生じる空力外乱を実験データから学習し，学習結果を未知ダイナミクスとして考慮した状態空間モデルを構築する．
+そして，得られたモデルに対する検証を行うことで，制御用プラントモデルとしての応用可能性と課題を明らかにする．
+</p><p>全駆動ヘキサロータは，位置・姿勢の 6 自由度すべてを独立に制御可能なマルチロータ型無人航空機の一つである．
+その着地動作時には，6 ロータすべてが傾いた構造ゆえにロータ間空力干渉や地面効果による推力変動が空力外乱として作用し,高度と姿勢双方の制御に影響する．
+特に，この空力外乱は制御モデルに考慮されていないため，着地動作の実現を困難にする．
+そこで本研究では，空力外乱の影響を状態と制御入力依存の未知のダイナミクスとして定式化し，状態空間モデルの一部として学習することで，着地制御実現に有効なモデルの構築を目標とする．
+</p><h4>手法
+</h4><p>まず，ヘキサロータの動力学モデルを導出し，さらに空力外乱の影響をロータ推力の不確かさとして表現することで，未知ダイナミクスを考慮した状態空間表現を導出する．
+つぎに，未知ダイナミクスの学習手法として，ガウス過程回帰 (GPR) を用いる．
+</p><h5>ガウス過程回帰 (GPR)
+</h5><p>GPRは機械学習の一手法であり，実システムの観測データから得られる情報を学習データとして用いて，未知関数の推定を行うことができる．
+また，GPRでは，任意の入力値に対する未知の出力の推定結果が確率分布（ガウス分布にしたがう）という，不確かさ付きの推定値として得られる．
+本研究では，この不確かさの情報を考慮して，全駆動ヘキサロータの未知ダイナミクス学習結果を検証する．
+</p><p><img align="bottom" alt="gpr.png" src="/SCHP/research/learning/gaussian_process_regression/gpr.png" style="bottom:0px;" width="400">
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

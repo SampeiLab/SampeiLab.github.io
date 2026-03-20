@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>時間軸状態制御形を用いた適応制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 本研究では，ノンホロノミックドリフトレスシステムをChained Formに変..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_31">
+
+<div class="articleHeader">
+<h2>時間軸状態制御形を用いた適応制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Astolfi.html">Astolfi</a>, <a href="/SCHP/tags/Chained-Form System.html">Chained-Form System</a>, <a href="/SCHP/tags/ドリフトレスシステム.html">ドリフトレスシステム</a>, <a href="/SCHP/tags/時間軸状態制御形.html">時間軸状態制御形</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="AdaptiveControl.gif" class="mt-image-center" height="350" src="/SCHP/research/nonlinear_control_theory/AdaptiveControl.gif" style="text-align: center; display: block; margin: 0 auto 20px;" width="500">
+</p><p>本研究では，ノンホロノミックドリフトレスシステムをChained Formに変換するときの座標変換に含まれるパラメータ誤差の影響について考察する．
+また，未知パラメータを持つあるクラスのドリフトレスシステムに対する時間軸状態制御形を用いた適応制御手法を提案する．
+</p><p>ノンホロノミックシステムは静的で連続な状態フィードバックでは安定化できないことから理論上制御しづらいシステムであることが知られている．
+ノンホロノミックシステムの安定化問題に関する一手法としてシステムを時間軸状態制御形と呼ばれる形式に変換する制御方策が三平により提案されている．
+この手法は，様々な制御仕様に応じて，一般的に用いられている制御理論を比較的容易に適用することができるため，制御系設計の拡張性に富んでいるという利点がある．
+その他にも多くの制御則が提案されているが，それらの多くがシステムをChained Formに変換してから制御系が設計される．
+この設計方法を用いた場合，システムのパラメータを正確に同定できれば良い制御性能が得られるが，システムをChained Formに変換する際の座標変換にパラメータ誤差があると変換後のシステムにもパラメータ誤差の影響が現れてしまう．
+パラメータ誤差が生じると状態にオフセットが生じたり，システムが不安定になる場合があるが，これまで考えられてこなかった．
+</p><p>本研究ではまず，ノンホロノミックシステムをChained Formに変換する線形な座標変換に含まれるパラメータ誤差の影響について考察し，パラメータ誤差の現れ方によってシステムのクラス分けを行う．
+そして，それぞれのクラスに対して時間軸状態制御形とAstolfiコントローラを適用し，状態を原点に収束させることが可能かどうかを検証し，Astolfiコントローラでは収束させることができないシステムでも，時間軸状態制御形はコントローラのゲインを調整するだけで収束させることができることを示した．
+よって，時間軸状態制御形はAstolfiコントローラよりパラメータ誤差に対してロバストであるといえる．
+次に，時間軸状態制御形とAstolfiコントローラの両方で状態を原点に収束させることができないクラスのシステムに対して，時間軸状態制御形を用いた座標変換も含めた適応制御手法を提案する．
+この方法を使うことによって，状態のオフセットが生じるシステムを原点に収束させることができる．
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Tadasuke MATSUMOTO, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Classification and Control for Driftless System in View of Parameter Error in Coordinate Transformation&quot;, Preprints of the 7th IFAC Symposium on Nonlinear Control Systems, 2007
+</li><li>Tadasuke MATSUMOTO, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Adaptive Control for a Class of Driftless Systems via Time State Control Form&quot;, Proceedings of the 8th International Conference on Motion and Vibration Control, 2006
+</li><li>松本 直輔，中浦茂樹，三平満司， &quot;座標変換のパラメータ誤差に関する考察と時間軸状態制御形を用いたドリフトレスシステムの適応制御&quot;， 第6回計測自動制御学会制御部門大会，2006
+</li><li>松本 直輔，中浦茂樹，三平満司， &quot;時間軸状態制御形を用いたドリフトレスシステムの適応制御&quot;， 第50回システム制御情報学会研究発表講演会，2006
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>鉄棒のしなりの効果を利用した振り上げ運動制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 人間は，環境に適応した動作をすることにより，より大きな機動性を得ることができる..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_20">
+
+<div class="articleHeader">
+<h2>鉄棒のしなりの効果を利用した振り上げ運動制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Acrobot.html">Acrobot</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/鉄棒.html">鉄棒</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="BarAcrobot.jpg" class="mt-image-center" height="400" src="/SCHP/research/acrobot/horizontal_bar/BarAcrobot.jpg" style="text-align: center; display: block; margin: 0 auto 20px;" width="400">
+</p><p>人間は，環境に適応した動作をすることにより，より大きな機動性を得ることができる．
+たとえば，トランポリンを使えば通常の何倍もの跳躍が可能になる．
+同様に，ロボットも環境の特性を利用し，それに適した運動を行なうことで，本来の運動能力以上の運動能力，運動特性が得られる可能性がある．
+</p><p>跳躍や体操競技など，高度な技能を有する人間の運動について，様々な研究がこれまでに行なわれてきた．
+こうした運動を制御の観点から見れば，劣駆動なシステムであり，非常に興味深い性質を持っている．
+特に，体操の鉄棒競技に関しては，振り上げ・大車輪・倒立等について，さまざまなアプローチで研究が行なわれているが，鉄棒のしなりの効果が考慮されていなかった．
+しかし，これらの力学的エネルギーを蓄積するような運動においては，ロボットの保有するエネルギーと鉄棒が保有するエネルギーをしなりを介して受け渡すことにより，エネルギーの蓄積をより効率良く行なえる可能性がある．
+そこで本研究では，以上のような振り上げ運動における背景をもとに，鉄棒のしなりを用いた振り上げ運動を実現させ，鉄棒のしなりがある場合とない場合を比較することで，鉄棒のしなりを利用する有効性を検証していく．
+</p><p>まず，直動1リンクのモデルを用いて，振り上げ運動の実現を目指した．
+しなりを有効利用した振り上げ運動を実現するためには，リンクの回転エネルギー，ポテンシャルエネルギーに加え，鉄棒の保有する力学的エネルギーについても考慮する必要がある．
+ここでは，リンクと鉄棒の運動を共振させることを考える．
+そのために，質点が移動しないという仮定のもとで，原点近傍で近似した1リンクモデルの運動を解析し，共振が生じるための鉄棒のしなりのパラメータについて考察し，さらに，リンクと鉄棒のエネルギーを考慮に入れ，リンクのエネルギーを増やす制御を構築した．
+その結果，鉄棒のしなりを利用した振り上げ運動を実現し，鉄棒にしなりがない場合と比較したときに早い振り上がりを達成することができた．
+</p><p>直動1リンクのモデルで鉄棒のしなりを利用した振り上げ運動を実現することができたが，物理パラメータ等その他の条件によっては，振り上がりに失敗する場面も見られた．
+そこで，より人間の動きに近いAcrobotを用い，鉄棒のしなりをAcrobotの第1リンクの長手方向に特化して考察を行い，鉄棒のしなりをより利用できるような制御を構築した．
+ここでは，大域的にAcrobotのエネルギーを増やすことができるようなリアプノフ関数を提案し，鉄棒のしなりを利用した振り上げ運動を実現した．
+特に，アクチュエータが与えられる仕事率に制限を加えたときに，鉄棒のしなりを利用した方が早く振り上がった．
+</p><p>しかし，鉄棒のしなりがない場合と比較すると，早く振り上がるときが必ずしも達成されるとは限らなかった．
+これまでの制御則は人間に相当するロボットのエネルギーを，鉄棒からのエネルギーの流れを考慮した上で制御則を構築してきた．
+したがって，エネルギー全体の流れを考慮しているとは言えず，振り上げ運動の失敗の原因の1つになっていた．
+そこで，鉄棒とAcrobotの第1リンク，第2リンクの間に存在するエネルギーの流れを把握し，これらの性質を考慮した制御則を提案する．
+これは，鉄棒とロボット，ロボットと外界とのエネルギーの流れを把握し，ロボットのエネルギーが蓄積されるようにエネルギーの流れを制御する意図である．
+まず，ロボットの重心に着目して，振り上がり運動や鉄棒とのエネルギーの受け渡しに関する振子の性質を明らかにし，これを利用して制御則を鉄棒のしなりと各要素間のエネルギーの流れに着目したAcrobotの振り上げ制御則を提案する．
+</p><h5>公開動画
+</h5><p>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/S0-Bdp_B28Y" width="420"></iframe>
+</p><h5>投稿論文・学会発表
+</h5><ul><li>斎藤暁生，中浦茂樹，三平満司， &quot;しなりのある鉄棒におけるAcrobotの加速車輪運動の制御実験&quot;, 第11回運動と振動の制御シンポジウム-MoViC2009-，2009
+</li><li>Ryuichi ANAMI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Swing Up Control for the Acrobot Considering Compliance of High Bar and Energy Interaction with Each Component&quot;, Proceedings of the 46th IEEE Conference on Decision and Control, 2007
+</li><li>Ryuichi ANAMI, Masao KANAZAWA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Swing up Control for Acrobot with Compliance of High Bar Focused on Energy Interaction with Each Component&quot;, Proceedings of the 2007 IEEE/RSJ International Conference on Intelligent Robots and Systems, 2007
+</li><li>Masao KANAZAWA, Ryuichi ANAMI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Swing up Control Experiment aimed at Energy Interaction between the Acrobot and Compliance&quot;, Proceedings of the SICE Annual Conference 2007, The Society of Instrument and Control Engineers, 2007
+</li><li>西内哲郎，Danilo de Santana Chui，中浦茂樹，三平満司， &quot;鉄棒のしなりとAcrobotのあふりを利用した振り上げ制御実験&quot;， 第6回計測自動制御学会制御部門大会，2006
+</li><li>Ryuichi ANAMI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Experiment for Swing Up Control Using Compliance&quot;, Proceedings of the SICE Annual Conference 2005, 2005
+</li><li>Shigeki NAKAURA, Naoyuki SHIRAISHI, and Mitsuji SAMPEI, &quot;Analysis of Compliance Effect for Swing Up Control&quot;, Preprint of 3rd IFAC-Symposium on Mechatronic Systems, 2004
+</li><li>Naoyuki SHIRAICHI, Mitsuji SAMPEI and Shigeki NAKAURA, &quot;Swing Up Control Using Compliance&quot;, The 42nd SICE Annual Conference, 2003
+</li><li>Naoyuki SHIRAICHI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;The Swing Up Control Using Compliance Effect&quot;, The 21st Annucal Conference of the Robotics Society of Japan, 2003
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

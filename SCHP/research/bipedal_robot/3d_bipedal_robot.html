@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>同期構造を利用した3D Bipedal Robotの走行制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 1970年代頃から始まったBipedal Robot，いわゆるヒューマノイドロ..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_17">
+
+<div class="articleHeader">
+<h2>同期構造を利用した3D Bipedal Robotの走行制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Bipedal Robot.html">Bipedal Robot</a>, <a href="/SCHP/tags/人間型ロボット.html">人間型ロボット</a>, <a href="/SCHP/tags/走行運動.html">走行運動</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="3D-runningMotion.jpg" class="mt-image-center" height="933" src="/SCHP/research/bipedal_robot/3D-runningMotion.jpg" style="text-align: center; display: block; margin: 0 auto 20px;" width="1202">
+</p><p>1970年代頃から始まったBipedal Robot，いわゆるヒューマノイドロボットによる人間の動作を実現する運動制御は，現在も盛んな研究テーマの一つである．
+そのなかでも人間の基本的な動作である，歩行や走行に関する運動制御は様々なアプローチから研究が行われており，すでに今日までにいくつかの実機において走行運動が実現されている．
+その一方で，従来手法の多くは足首関節を考慮していないものや，考慮しているものであっても足裏を積極的に接地させた運動を扱っているため，人間らしい足首による蹴り上げを利用した跳躍動作を実現している報告例は少ない．
+本研究室ではこれまで，この問題に対し，人間型ロボットを足首関節を考慮した回転型関節を持つ7リンクモデルとしてモデル化し，人間の自然な走行動作を生成する制御器の提案を行い，足首関節を利用した走行運動を実現している．
+しかしながら，これまで提案手法は二次元の簡易モデルに対しての運動のみに焦点をおいた制御手法であった．
+そこで，実機での運動制御への適用を考える場合，これらの制御手法を３次元空間での制御に拡張する必要性がある．
+</p><p>以上を踏まえ，本研究では，３次元空間における，足首関節を考慮した回転型関節を持つ7リンクのBipedal Robotの走行制御について扱う．
+今回は，３次元の走行運動制御に対し，運動をSagittal Direction(進行方向)，Lateral Direction(横方向)，Twist Rotation(垂直軸まわりの回転)に分割し，制御目標を設定した．
+</p><p>まず，Sagittal Directionにおいては，本研究室での従来研究を参考に，実際の人間の走行動作の観察から，走行運動を「移動に伴って規則的に変化する物理量に対して，各関節が同期して動作することによって生成される運動」とみなし，走行動作中に重心の並進位置が単調増加する事に着目し，重心位置と関節角度との同期構造を提案した．
+また，提案した制御手法を用いて，２次元の簡易モデルに対し，０に近い初速度からの走行運動の安定化を検証した．
+さらに２次元モデルへの制御を３次元モデルへの制御へ拡張する方法として，Z-X-Yオイラー角に基づく姿勢制御を提案した．
+</p><p>次にLateral Direction，Twist Rotationについても，人間の動作の観察から直感的な制御目標を考案した．
+最終的に考案した制御目標に対応する出力関数を設計し，それらを出力零化することで，進行方向の制御を含む３D Bipedal Robotによる走行運動を数値シミュレーション上で実現した．
+さらに，目標直線軌道と現在位置との偏差をもとに，進行方向を司る設計パラメータを離散的に変更する事で，直線軌道への追従走行制御を実現した．
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>ダイナミクスを考慮した非ホロノミック系の時間軸状態制御形に基づく制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="非ホロノミック系の多くは連続時不変な制御則で漸近安定化ができないことが Broc..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_92">
+
+<div class="articleHeader">
+<h2>ダイナミクスを考慮した非ホロノミック系の時間軸状態制御形に基づく制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/Chained-Form System.html">Chained-Form System</a>, <a href="/SCHP/tags/ノンホロノミックシステム.html">ノンホロノミックシステム</a>, <a href="/SCHP/tags/時間軸状態制御形.html">時間軸状態制御形</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p>非ホロノミック系の多くは連続時不変な制御則で漸近安定化ができないことが Brockett の定理により示されているため，一般的なシステムと比較して制御が困難だとされている. これは，状態方程式がドリフト
+項をもたない対称アファイン系として記述される非ホロノミック系おいても成立する事実である．しかし，対称アファインな非ホロノミック系は，状態方程式の構造の簡単さから一般的な非ホロノミック系の中では制御が容易な部類であり，状態の原点収束を保証する不連続な制御則や時変の制御則が多く提案されている．
+</p><p>上記の事実から，二輪車両系を含む，機械系に該当するあるクラスの非ホロノミック系は，質量や慣性モーメントを有し，アクチュエータとして主にモータを使用しているにもかかわらず，多くの制御問題において速度を直接入力できると仮定した対称アファインな非ホロノミック系とみなされる．しかしながら，上記の速度入力制御則を実機に適用す
+る場合，モータの速度フィードバック制御が必要になり，フィーバックゲインを大きく設定することで所望の速度を瞬時に入力できるようにする必要がある．このため，目標速度と実際の速度との差が大きい制御開始時において，モータから出力されるトルクが許容トルクを超える可能性がある．この問題を解決するためには，加速度入力を陽に
+扱うダイナミクスを考慮し，制御開始時に大きなトルクを加えなくても，制御が可能となる加速度入力制御則を設計する必要がある．しかし，上記の非ホロノミック系に対してダイナミクスを考慮すると状態方程式がドリフト項を有
+する非ホロノミック系となる．したがって，対称アファインな非ホロノミック系に対する制御則およびそれを提案するための数学的手法をそのまま適用することができない．
+</p><p>上記のダイナミクスを考慮した非ホロノミック系を制御する手法の１つとして，システムを2次の時間軸制御部をもつ時間軸状態制御形に変換し，この形式に基づいて制御を行なう手法が本研究室の先行研究において提案された．しかし，制御則切り替え時に一部の入力が定義されなくなるという問題から具体的な制御則の提案や実機による検証がなされていない．
+</p><p>そこで，本研究では，あるクラスの時間軸を用いた時間軸状態制御形に基づいて，制御則を切り替えなくても原点収束を保証できる制御則を設計する手法を提案する．これにより，制御則を切り替えることによって発生する上記の問題を回避することができる．さらに，状態の収束性と入力の有界性を解析することで，これらの制御が有界な入力により達成されるための定理を導く．
+最後に，提案制御則の有効性をシミュレーションにより確認する．なお，制御則を適用するシステムの中には二輪車両系と板とそれに挟まれた球の位置制御系も含まれており，実環境のシステムに対して提案制御則による制御が有効であることを示す.
+</p><h4>投稿論文・学会発表
+</h4><ul><li><p>村上 尚人，伊吹 竜也，三平 満司，&quot;ダイナミクスを考慮した非ホロノミック系の制御 - 非線形な状態制御部をもつ時間軸状態制御形に基づくアプローチ -&quot;, 第4回制御部門マルチシンポジウム, 2017.
+</p></li><li><p>村上 尚人，伊吹 竜也，三平 満司，&quot;ダイナミクスを考慮した非ホロノミック系の時間軸状態制御形に基づく漸近安定化制御&quot;, 第59回自動制御連合講演会予稿集, 2016.
+</p></li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

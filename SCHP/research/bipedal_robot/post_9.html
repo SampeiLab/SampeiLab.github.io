@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>アクロバットロボットの鉄棒飛付き運動 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　本研究の対象となっているアクロバットロボットは人間型をしており， 可動関節が..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_28">
+
+<div class="articleHeader">
+<h2>アクロバットロボットの鉄棒飛付き運動</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/人間型ロボット.html">人間型ロボット</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/跳躍運動.html">跳躍運動</a>, <a href="/SCHP/tags/鉄棒.html">鉄棒</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="AcrobatRobot.gif" height="480" src="AcrobatRobot.gif" width="400">
+</p><p>　本研究の対象となっているアクロバットロボットは人間型をしており，
+可動関節が肩，腰，膝，足首に左右計8個取りつけられた，4自由度の構造となっています．
+本研究の目的はこのアクロバットロボットを地面から垂直に跳躍させ，
+上空にある鉄棒に跳びつかせる，という運動を実現することです．
+</p><p>　今までの研究から，肩，腰，膝，足首の順に体の上の部分から運動を行うときに，
+高い跳躍を得られることがシミュレーションレベルでわかっています．
+物理的拘束を受けて静止している多自由度モデルに跳躍させることを考えたとき，
+上から順に関節を動かした方が，反力としての上向きの力を得やすいというものである．
+本研究ではこれを実機に適用して確かめると共に，
+どのような入力タイミングで各関節を動かしていけば，より高く，
+より姿勢の良いジャンプが実現できるかを実験的に考察しています．
+</p><h4>公開動画
+</h4><p>  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/3AW6f6pS2ho" width="420"></iframe>
+  <iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/E0b0FiwiaJ4" width="420"></iframe>
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Yuji KITAMURA, Naoyuki Shiraishi, Yasuyuki KAWAIDA, Shigeki NAKAURA, Mitsuji SAMPEI, &quot;Experimental Study of Vertical Jumping Control for Acrobat Robot&quot;, JSME Conference on Robotics and Mechatronics, 2002
+</li><li>Naoyuki SHIRAISHI,Yasuyuki KAWAIDA,Yuji KITAMURA, Shigeki NAKAURA and Mitsuji SAMPEI, &quot;Vertical Jumping Control of an Acrobat Robot with Consideration of Input Timing&quot;, Proceedings of the 41th SICE Annual Conference,2002
+</li><li>Yasuyuki KAWAIDA, Shigeki NAKAURA and Mitsuji SAMPEI, &quot;A Study on Vertical Jumping Control of Acrobat Robot&quot;, Proceedings of the 40th SICE Annual Conference, 2001
+</li><li>Masahiro MIYAZAKI, Mitsuji SAMPEI, and Masanobu KOGA, &quot;Control of the motion of an acrobot approaching a horizontal bar&quot;, Advanced Robotics, 2001
+</li><li>三平満司，本田健，古賀雅伸， &quot;初期角運動量を有する劣駆動飛遊系の姿勢制御&quot;， 日本ロボット学会誌，2001
+</li><li>川井田康礼，中浦茂樹，三平満司， &quot;アクロバットロボットを用いた跳びつきの制御&quot;， 第40回計測自動制御学会学術講演会，2001
+</li><li>三平満司，本田健，古賀雅伸， &quot;ドリフト項を有するノンホロノミック拘束系の制御-初期角運動量を有する劣駆動飛遊体の制御-&quot;， 第38回計測自動制御学会学術講演会，1999
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>状態依存型リカッチ不等式の解法に関する考察 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content="非線形H∞制御問題とは外乱抑圧を行いながらシステムを安定化する制御手法の一種であ..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_33">
+
+<div class="articleHeader">
+<h2>状態依存型リカッチ不等式の解法に関する考察</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/ハミルトンヤコビ不等式.html">ハミルトンヤコビ不等式</a>, <a href="/SCHP/tags/双線形行列不等式（BMI）.html">双線形行列不等式（BMI）</a>, <a href="/SCHP/tags/状態依存型リカッチ不等式（SRI）.html">状態依存型リカッチ不等式（SRI）</a>, <a href="/SCHP/tags/線形行列不等式（LMI）.html">線形行列不等式（LMI）</a>, <a href="/SCHP/tags/非線形H∞制御.html">非線形H∞制御</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p>非線形H∞制御問題とは外乱抑圧を行いながらシステムを安定化する制御手法の一種であり，その解はハミルトンヤコビ不等式（HJI）と呼ばれる偏微分不等式に帰着されることが知られている．
+しかし，このHJIは偏微分不等式であるために解析的に解くことは困難であり，一般的な解法は現在のところ確立されていない．
+この問題に対しHJIの数値解法の一つとして状態依存型リカッチ不等式（SRI）を用いた解法が研究されている．
+</p><p>一般的な非線形システムを状態依存型係数表現と呼ばれる形式に変換することによって，可解条件であるHJIはSRIと呼ばれる非線形行列不等式に変換される．
+これは線形H∞制御問題におけるリカッチ不等式に相当するものである．
+</p><p>SRIに関して以下のような点に注意する必要がある．
+HJIをSRIに変換する際には可積分性の条件が存在し，この条件を考慮しない限りリカッチ不等式の解は元のHJIの解として適切でない可能性がある．
+さらに，一般の非線形システムに対する状態依存型係数表現は一意に決まらず，状態依存型係数表現の選び方に対する自由度が存在する．
+</p><p>このような背景から，本研究では「状態依存型係数表現の自由度」に着目してHJIの数値解法に関する考察を行っている．
+これまでにも自由度を考慮した研究は行われているが，自由度を完全には表現できておらず，求めた解を直接補正するといった手法が取られていた．
+本研究ではこの自由度を完全に表現する手法を導入し，SRIにこの自由度を考慮することによってHJIの数値解法を考察している．
+</p><p>通常リカッチ不等式は線形行列不等式（LMI）に変換することができるので，計算機を用いて数値計算が可能である．
+しかし，自由度を考慮したリカッチ不等式は同様の手法ではLMIに変形することはできず，別の方法を考える必要がある．
+本研究ではこの自由度を考慮したリカッチ不等式に対し，十分条件ではあるがLMI問題に帰着させる方法，及び必要十分条件を保ったまま双線形行列不等式（BMI）という形で数値的に解くという2種類の手法を提案した．
+</p><p>提案する2種類の手法を用いて，ある領域でハミルトンヤコビ不等式を満たすような定数解及び各状態で計算を行いながら状態依存の解を求める方法について考察した．
+さらに，自由度を考慮しながら可積分性の条件を同時に扱う手法についても触れる．
+これらの手法に対し，シミュレーションによる自由度の有効性の確認が行われた．
+</p><h5>投稿論文・学会発表
+</h5><ul><li>Yoshihiro SAKAYANAGI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Conservativeness of State-Dependent Riccati Inequality: Effect of Free Parameters of State-Dependent Coefficient Form&quot;, Proceedings of the 47th IEEE Conference on Decision and Control, 2008
+</li><li>Yoshihiro SAKAYANAGI, Daisuke NAKAYAMA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Clarification of Free Parameters of State-dependent Coefficient Form: Effect on Solving State-dependent Riccati Inequality&quot;, Proceedings of the 17th IFAC World Congress, 2008
+</li><li>坂柳佳宏，中山大輔，中浦茂樹，三平満司， &quot;状態依存型係数表現の自由度の明確化と状態依存型リカッチ不等式の解法に与える影響&quot;， 第8回制御部門大会論文集，計測自動制御学会，2008
+</li><li>Laosuwan PATPONG, Mitsuji SAMPEI, Masanobu KOGA, and Etsuro SHIMIZU, &quot;A numerical computational approach of nonlinear H∞ control problems&quot;, Proceedings of the 35th IEEE Conference on Decision and Control, 1996
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

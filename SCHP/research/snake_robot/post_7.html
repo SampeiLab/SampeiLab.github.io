@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>ヘビ型ロボットの推進・巻付き運動 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　蛇はその柔軟な体を自在に変形させることによって，推進，木登り， 獲物や体の把..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_26">
+
+<div class="articleHeader">
+<h2>ヘビ型ロボットの推進・巻付き運動</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/へび型ロボット.html">へび型ロボット</a>, <a href="/SCHP/tags/モータ駆動.html">モータ駆動</a>, <a href="/SCHP/tags/可操作性.html">可操作性</a>, <a href="/SCHP/tags/屈曲運動.html">屈曲運動</a>, <a href="/SCHP/tags/特異姿勢.html">特異姿勢</a>, <a href="/SCHP/tags/空気圧アクチュエータ.html">空気圧アクチュエータ</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="Pneumanake_SICE02.png" class="mt-image-center" height="240" src="/SCHP/research/snake_robot/Pneumanake_SICE02.png" style="text-align: center; display: block; margin: 0 auto 20px;" width="300">
+<img alt="Pneumanake_IntroOfExp.png" height="240" src="/SCHP/research/snake_robot/Pneumanake_IntroOfExp.png" width="300">
+<img alt="Pneumanake.gif" height="480" src="/SCHP/research/snake_robot/Pneumanake.gif" width="300">
+<img alt="SnakeRobot.gif" height="480" src="/SCHP/research/snake_robot/SnakeRobot.gif" width="300">
+</p><p>　蛇はその柔軟な体を自在に変形させることによって，推進，木登り，
+獲物や体の把持や体の指示などの環境に応じて多彩な運動ができるという特徴を持ちます．
+私達の研究室では受動車輪を備えたへび型ロボットの自律的な推進及び巻き付きに関する研究を行っています．
+ヘビ型ロボットの推進原理は車輪を直接駆動せずに体幹の屈曲運動によって地面から受ける横拘束力を推進力に変換するものであるため，
+それ自身の姿勢が進みやすさに大きく依存します．
+特に，真っ直ぐ伸びた状態や円弧の一部となる状態では動けなくなる方向が存在し，
+特異姿勢と呼ばれています．
+</p><p>　私達は推進問題において特異姿勢に着目し，
+可操作性の概念を応用した制御則を提案し蛇行運動を明示的に与えずとも自然発生的にうねりながら推進することを提案しています．
+そしてモータ駆動を用いたへび型ロボットと空気圧アクチュエータを用い，
+入力をON/OFFに制限されたヘビ型ロボットによる実験によりその有効性を確認しています．
+</p><h4>動画
+</h4><ul><li>シミュレーション(トルク最小化)<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/n06n9cvxG_E" width="420"></iframe>
+</li><li>シミュレーション(拘束力最小化)<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/cSTGH1FtIxs" width="420"></iframe>
+</li><li>シミュレーション(巻き付き)<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/fa7io4jeGUs" width="420"></iframe>
+</li><li>実験<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/DfMfNjia0JU" width="420"></iframe>
+</li></ul><h5>投稿論文・学会発表
+</h5><ul><li>津田雅史，中浦茂樹，三平満司， &quot;体重分散を考慮した蛇型ロボットの可操作性に関する研究&quot;， Dynamics and Design Conference 2004, 2004
+</li><li>Masashi TSUDA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Dynamic Manipulability of a Snake-like Robot and its Effect for Sinus-lifting Motion&quot;, SICE Annual Conference 2004, 2004
+</li><li>Hiroki IZU, Hisashi DATE, Kouichi SHIGETA, Toshiro YAMANAKA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Locomotion and Coiling Motion Control of Snakelike Robot using Pneumatic Actuators&quot;, Proceedings of the 41th SICE Annual Conference, 2002
+</li><li>山中俊郎，伊達央，繁田紘一，伊豆裕樹，中浦茂樹，三平満司， &quot;空圧駆動蛇型ロボットの推進・巻付制御実験&quot;， 日本機械学会ロボティクス・メカトロニクス講演会2002，2002
+</li><li>伊達央，三平満司，中浦茂樹， &quot;3次元蛇型ロボットの曲面上の運動制御&quot;， 第2回計測自動制御学会制御部門大会，2002
+</li><li>Hisashi DATE, Yoshikatsu HOSHI, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Locomotion control of a snake robot with constraint force attenuation&quot;, 2001 American Control Conference, 2001
+</li><li>Hisashi DATE, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Control of a Snake Robot in Consideration of Constraint Force&quot;, TITech COE/Super Mechano-Systems Symposium 2001, 2001
+</li><li>Hisashi DATE, Mitsuji SAMPEI, and Shigeki NAKAURA, &quot;Control of a Snake Robot in Consideration of Constraint Force&quot;, Proceedings of 2001 IEEE Conference on Control Applications, 2001
+</li><li>松本倫治，中浦茂樹，三平満司， &quot;ON/OFF入力を用いたヘビ型ロボットの制御&quot;， 第40回計測自動制御学会学術講演会，2001
+</li><li>川井洋志，三平満司，伊達央， &quot;横滑りを考慮した蛇型ロボットの運動制御&quot;， 日本機械学会ロボティクス・メカトロニクス講演会2001，2001
+</li><li>伊達央，三平満司，中浦茂樹， &quot;拘束力に着目した蛇型ロボットの推進制御&quot;， 第1回計測自動制御学会制御部門大会，2001
+</li><li>川井洋志，松本倫治，三平満司，伊達央， &quot;横滑りを考慮した蛇型ロボットの運動制御&quot;， 第7回「運動と振動の制御」シンポジウム，日本機械学会，2001
+</li><li>Hisashi DATE, Yoshikatsu HOSHI, and Mitsuji SAMPEI, &quot;Locomotion control of a snake like robot based on dynamic manipulability&quot;, Proceedings of IEEE/RSJ International Conference on Intelligent Robots and Systems, 2000
+</li><li>星義克，三平満司，古賀雅伸， &quot;動的可操作性を考慮した多関節へび型ロボットの自律推進制御&quot;， 日本ロボット学会誌，2000
+</li><li>Hisashi DATE, Yoshikatsu HOSHI, Mitsuji SAMPEI, &quot;Dynamic Manipulability of a Snake-Like Robot with Consideration of Side Force and its Application to Locomotion Control&quot;, International Symposium on Adaptive Motion of Animals and Machines, 2000
+</li><li>伊達央，星義克，三平満司，石井宏志， &quot;横拘束力を考慮したへび型ロボットの動的可操作性とその推進制御&quot;， 日本機械学会ロボティクス・メカトロニクス講演会2000，2000
+</li><li>Yoshikatsu HOSHI, Mitsuji SAMPEI, and Masanobu KOGA, &quot;An Autonomous Locomotion Control of a Multi-Joint Snake-Like Robot with Consideration of the Dynamic Manipulability&quot;, IFAC Workshop on Lagrangean and Hamiltonian Methods for Nonlinear Control, 2000
+</li><li>星義克，三平満司，古賀雅伸， &quot;動的可操作性を考慮したへび型推進ロボットの制御&quot;， 第38回計測自動制御学会学術講演会，1999
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

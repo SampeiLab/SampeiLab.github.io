@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>時間軸状態制御形を用いた宇宙ロボットの姿勢制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 宇宙ロボットは宇宙空間で任意の姿勢から特定の姿勢に変更するシステムで，外力が加..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_52">
+
+<div class="articleHeader">
+<h2>時間軸状態制御形を用いた宇宙ロボットの姿勢制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/サブシステム.html">サブシステム</a>, <a href="/SCHP/tags/ドリフトレスシステム.html">ドリフトレスシステム</a>, <a href="/SCHP/tags/宇宙機.html">宇宙機</a>, <a href="/SCHP/tags/時間軸状態制御形.html">時間軸状態制御形</a>, <a href="/SCHP/tags/適応制御.html">適応制御</a>, <a href="/SCHP/tags/非ホロノミック拘束.html">非ホロノミック拘束</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="SpaceRobot.gif" class="mt-image-center" height="480" src="/SCHP/research/spacecraft/space_robot/SpaceRobot.gif" style="text-align: center; display: block; margin: 0 auto 20px;" width="720">
+</p><p>宇宙ロボットは宇宙空間で任意の姿勢から特定の姿勢に変更するシステムで，外力が加わらない宇宙空間において角運動量保存則から導かれる拘束を受ける．
+このためドリフト項を持たないノンホロノミックシステムになっている．
+</p><p>従来ノンホロノミックシステムはChained Formや時間軸状態制御形に変換してから制御系を設計する．
+この際にシステムのパラメータを正確に同定しなくてはならないが，実際には正確に同定できないのである種の適応則を含む制御系を必要とする．
+ところが宇宙ロボットの場合，パラメータ誤差が座標変換に影響するため適応則を導入できないという問題点がある．
+</p><h4>吊り下げ型宇宙ロボットシミュレータ
+</h4><p>そこで本研究では宇宙ロボットのシステムに対して１つの未知パラメータをもつ時間軸状態制御形への変換を用いて，その未知パラメータを2つの異なる推定則によってそれぞれ独立に推定することにより座標変換に含まれているパラメータを推定することを可能にした．
+また，この手法の有効性をシミュレーションによって確認している．
+</p><h4>2本の1自由度アームを有する宇宙ロボットの姿勢制御
+</h4><p><img alt="2ArmSpaceRobot.png" class="mt-image-center" height="480" src="/SCHP/research/spacecraft/space_robot/2ArmSpaceRobot.png" style="text-align: center; display: block; margin: 0 auto 20px;" width="720">
+本論文で扱う3次元空間における宇宙ロボットは，円柱形のベースの両端に回転する1自由度をもつ2本のアームがついている．
+アームの運動面は互いに垂直になっており，姿勢制御に用いるスラスターやリアクションホイルはなく，このアームの運動のみで姿勢制御を行う．
+この2入力-5状態のノンホロノミックシステムはChained Formへの変換ができないシステムため，２つの時間軸状態制御形に変換し，各サブシステムを切り替えることにより制御する．
+この線形近似された二つのサブシステムは時変な線形システムであり，2次安定性により各サブシステムは原点近傍で収束する.
+</p><h4>動画
+</h4><ul><li>実験<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/fGtlajQHKnU" width="420"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/92apeJrZZSA" width="420"></iframe>
+</li><li>実験(適応制御なし)<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/zqIkKNxn1-Q" width="420"></iframe>
+</li><li>実験(適応制御あり)<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/KBz6BCX8yOA" width="420"></iframe>
+</li></ul><h4>投稿論文・学会発表
+</h4><ul><li>Jiun SOHN, Tsuyoshi SAGAMI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;An Attitude Control of the Space Robot with Two Arms of single Degree of Freedom&quot;, Proceedings of the SICE Annual Conference 2008, The Society of Instrument and Control Engineering, 2008
+</li><li>三平満司，石川将人，清田洋光，&quot;時間軸状態制御形を用いた宇宙ロボットの姿勢制御&quot;， The 17th SICE Dynamical System Theory Symposium, 1994
+</li><li>Mitsuji SAMPEI, &quot;A Control Strategy for a Class of Non-Holonomic System -Time-State Control Form and its Application-&quot;, The 33rd IEEE Conference on Decision and Control, 1994
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

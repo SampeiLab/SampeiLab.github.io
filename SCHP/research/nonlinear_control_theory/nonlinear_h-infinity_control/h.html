@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>非線形重みを用いた非線形H∞制御系の設計 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 非線形H∞制御理論とは，非線形システムに対して時間領域上のL2ゲインを評価指標..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_55">
+
+<div class="articleHeader">
+<h2>非線形重みを用いた非線形H∞制御系の設計</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/非線形H∞制御.html">非線形H∞制御</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="NonlinearHinf.jpg" class="mt-image-center" height="302" src="/SCHP/research/nonlinear_control_theory/nonlinear_h-infinity_control/NonlinearHinf.jpg" style="text-align: center; display: block; margin: 0 auto 20px;" width="263">
+</p><p>非線形H∞制御理論とは，非線形システムに対して時間領域上のL2ゲインを評価指標として制御系設計を目指すものである．
+非線形H∞制御問題では，その可解条件がハミルトン・ヤコビ方程式と呼ばれる偏微分方程式で与えられる．
+しかし，ハミルトン・ヤコビ方程式の一般的な解法は提案されておらず，非線形H∞制御の応用例は少ない．
+</p><p>そこで，本研究では制御対象が線形な場合と双線形な場合を考え，制御出力に非線形な重みを選んだ場合の非線形H∞制御問題を考える．
+非線形な重み関数の選び方を工夫することで，非線形H∞制御問題の可解条件を線形リッカチ方程式に帰着させている．
+</p><p>また，本研究では非線型な重み関数を用いているので，状態の大きさによって制御性能を変化する制御系の設計が可能になる．
+非線形な重み関数の選び方によって外乱抑制問題，および入力制限問題の2つの制御問題に応用できる．
+外乱抑制問題は，状態が大きいときにより大きな制御入力を出して制御性能を改善する制御系の設計を目的としており，逆に入力制限問題では状態が大きいときに，制御性能を多少犠牲にしても，あまり大きな制御入力を出さないような制御器の設計を目的としている．
+</p><p>本研究では，いくつかの設計例に対して，数値シミュレーションを行い非線形重みの有効性を確認している．
+</p><h4>投稿論文・学会発表
+</h4><ul><li>田中聡，古田勝久，三平満司， &quot;1入力1出力連続時間サーボ系におけるH∞／Deadbeat混合問題の一般化&quot;， 計測自動制御学会論文集，2000
+</li><li>田中聡，古田勝久，三平満司， &quot;1入力1出力連続時間サーボ系におけるH∞／Deadbeat混合問題の一般化&quot;， 第39回計測自動制御学会学術講演会，2000
+</li><li>大作覚，三平満司，清水悦郎，富田晃市， &quot;非線形H∞制御によるセミアクティブサスペンション&quot;， 計測と制御，2000
+</li><li>三平満司，大作覚，上村一整， &quot;非線形H∞制御理論の限界と可能性─セミアクティブサスペンションへの応用&quot;， システム/制御/情報，1999
+</li><li>清水悦郎，久保田健太，三平満司，古賀雅伸， &quot;非線形H∞状態フィードバックをもちいた線形システムに対する非線形制御則の一設計法&quot;， 計測自動制御学会論文集，1999
+</li><li>清水悦郎，三平満司，古賀雅伸， &quot;非線形H∞出力フィードバックをもちいた線形システムに 対する非線形制御則の一設計法&quot;， 計測自動制御学会論文集，1999
+</li><li>清水悦郎，久保田健太，三平満司，古賀雅伸， &quot;双線形システムに対する非線形H∞状態フィードバック制御則の一設計法&quot;， 計測自動制御学会論文集，1999
+</li><li>Etsuro SHIMIZU, Mitsuji SAMPEI, and Nisato NAKAYAMA, &quot;Vibration Control of the Multi-degree-of-freedom Structure using a Nonlinear H∞ Output Feedback&quot;, Mathematical Controller Theory of Networks and Systems, 1999
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

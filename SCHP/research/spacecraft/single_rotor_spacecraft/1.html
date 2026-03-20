@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>1ロータスペースクラフトの可制御性解析 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 2010年の小惑星探査機はやぶさの例にもあるように，スペースクラフトにおいては..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_49">
+
+<div class="articleHeader">
+<h2>1ロータスペースクラフトの可制御性解析</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/スペースクラフト.html">スペースクラフト</a>, <a href="/SCHP/tags/可到達性.html">可到達性</a>, <a href="/SCHP/tags/可制御度.html">可制御度</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="one-rotor.png" height="302" src="fig/one-rotor.png" width="411">
+</p><p>2010年の小惑星探査機はやぶさの例にもあるように，スペースクラフトにおいてはフェールセーフを考えることは重要である．
+故障時の最小入力である1ロータを考え，このスペースクラフトは可制御であるかどうか，達成可能な制御目標にはどのようなモノが存在するのかを考えるていく．
+しかし，1入力であるため，達成可能な制御問題は限られる．
+そこで，まずは地球との通信を行うことが重要であると考え，アンテナを地球に向けるために姿勢制御問題を考える．
+</p><p>このシステムの可制御性を考えると，システムの慣性主軸とロータの回転軸，システムの初期角運動量ベクトルがすべて一致している場合，スペースクラフトはロータの回転軸周り以外に回転させることができない．
+そのため，このシステムは可制御性に関して特異点を有している．
+既存研究ではスペースクラフトの姿勢制御問題のように状態空間がコンパクトな集合で角運動量保存則の影響を受けるシステムに対して，大域的な可制御性を判定する手法が提案されている．
+</p><p>しかし，1ロータシステムの姿勢制御問題では可制御性に特異点を有しているので，従来の大域的な可制御性の判定手法を用いる事ができない．
+そこで本論文では，部分集合可制御性という新しい可制御性の概念を導入し，可制御性に特異点を持ち，状態空間がコンパクトなハミルトン系の部分集合における可制御性を判定する定理を与える．
+これにより，可制御性に特異点を有する系でもほぼ大域的な可制御性を判定できるようになる．
+この定理により，1ロータシステムは姿勢制御に関して特異点を除いた集合で可制御性を有していることが示せる．
+</p><p>次に，アンテナを地球に向ける制御則を構築していく．
+このシステムは初期角運動量が3自由度あるにも関わらず，入力数が1つしかないため，姿勢を静止させることはできず，閉ループ系を含めて平衡点が存在しない．
+そのため，本論文ではアンテナを周期的もしくは断続的でも無限回地球に向けることを考える．
+入力が1つであるため，方向を一致させるために入力を用い，周期的な運動は自律的に発生させる必要がある．
+そこで，アンテナの方向，地球への方向のそれぞれの初期角運動量ベクトルとの相対角を一致させる制御を行う．
+これにより，アンテナは初期角運動量周りの円錐上に固定され，角運動量によって自然にアンテナの方向ベクトルが円錐上を回転させることができ，制御目標を達成することができる．
+</p><ul><li>田原 康平、伊達 央、関口 和真、三平 満司 &quot;Accessibility Rank Conditionに特異点を有する1ロータスペースクラフトの可制御性解析&quot;, 第12回SICE制御部門大会, 2012 (japanese)
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

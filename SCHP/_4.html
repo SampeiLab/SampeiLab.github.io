@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>重力場における 4 ロータ飛行体の構造と制御出力に関する研究 - Sampei Laboratory | 東京工業大学大学院 機械制御システム専攻 三平研究室</title>
+
+<meta name="description" content=" 本研究では, 4 ロータ飛行体の構造と制御点の間の関係を考察する. 現在, 4..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学大学院 機械制御システム専攻 三平研究室">Sampei Laboratory | 東京工業大学大学院 機械制御システム専攻 三平研究室</a></h1>
+<p>Department of Mechanical and Control Engineering, Graduate School of Science and Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_72">
+
+<div class="articleHeader">
+<h2>重力場における 4 ロータ飛行体の構造と制御出力に関する研究</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/クアッドロータ.html">クアッドロータ</a>, <a href="/SCHP/tags/ゼロダイナミクス.html">ゼロダイナミクス</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img width="731" alt="3D_quad.png" src="http://www-i.sc.ctrl.titech.ac.jp/SCHP/3D_quad.png" style="&quot;text-align:" img class="mt-image-center" height="497">
+</p><p>本研究では, 4 ロータ飛行体の構造と制御点の間の関係を考察する.
+現在, 4 ロータ飛行体の工学的・学術的応用が期待されており,搭載したカメラによる撮影や,
+人や貨物の運搬など多岐にわたる研究が行われている.
+しかし, 4 ロータ飛行体の構造について考察されている研究は少ない.
+また,ほとんどの研究は 4 ロータ飛行体の重心を制御点として考察しており,
+上記のカメラや人,貨物の位置は考えられていない.
+</p><p>そこで,本研究では重心以外の制御点および様々な構造に対して,
+ 4 ロータ飛行体の挙動の変化をシミュレーションにより考察する.
+まず,構造と制御点を考慮したシミュレーションのための準備として,ロータの位置,傾き,
+制御点をパラメータにもつ 4 ロータ飛行体の状態方程式を導出する.
+つぎに,代表的な制御手法である出力零化制御と LQ 最適制御の 2 つを用いて挙動の変化を考察する.
+ 1 つ目の手法では,制御位置の座標を出力関数にとり,
+厳密な線形化および出力零化制御を行うことで生じるゼロダイナミクスの安定性を調べる.
+ここでは,ゼロダイナミクスの特徴についても注目し,その物理的意味に関する考察を行う.
+ 2 つ目の手法では,システムを 1 次近似により線形化し, LQ 最適制御を行ったときのシミュレーション結果から,
+ 4 ロータ飛行体の構造が挙動に与える影響を考察する.
+ここでは,制御点のほかに初期状態についても複数の値を設定することで,状況に応じた挙動についても考える.
+最後に,本研究で得られた結果をもとに構造による挙動の変化を整理し,
+ 4 ロータ飛行体の構造最適化の可能性について述べる.
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.3mech.titech.ac.jp/">大学院理工学研究科 機械系3専攻</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 6.0.5</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2016 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

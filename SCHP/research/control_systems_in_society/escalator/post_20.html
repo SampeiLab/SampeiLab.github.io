@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>エスカレータ上の人の流れの解析 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　エスカレータは人間の昇降を手助けする有用な輸送機器として，一般に広く普及して..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_45">
+
+<div class="articleHeader">
+<h2>エスカレータ上の人の流れの解析</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/エスカレータ.html">エスカレータ</a>, <a href="/SCHP/tags/交通量.html">交通量</a>, <a href="/SCHP/tags/最適化.html">最適化</a>, <a href="/SCHP/tags/社会のなかの制御理論.html">社会のなかの制御理論</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="bottleneck.jpg" height="286" src="/SCHP/research/control_systems_in_society/escalator/bottleneck.jpg" width="497">
+</p><p>　エスカレータは人間の昇降を手助けする有用な輸送機器として，一般に広く普及しているが，現在ではその乗り方が問題となっている．
+1200型(2人乗り) のエスカレータでは，急ぐ人に配慮するために片側では停止し，片側では歩行しながら利用する形態が慣習的となっているが，走行中に人や物に衝突し，転倒事故につながる事例が発生している．
+また，歩き乗りは交通量という観点でもよい乗り方であるかという疑問が生じる．
+歩き乗りは，停止時と比較して高速な移動を可能とするが，人と人との間隔が広がり密度が低下するために，全体の流量が低下する可能性がある．
+</p><p>　以上の観点から，本研究では，混雑時における駅の上りエスカレータを想定し，停止時や歩行時の流量，並ぶ時間・通過時間，および，それらの時間を基にした不満度を比較・評価することを目的とする．
+また，出入口における詰まりなどの現実的な仮定を含めた場合の影響の確認も目的とする．
+まず，歩行速度や人の間隔を文献や自身の計測を参考にして設定し，人の流れが定常流だと仮定したときの流量や並ぶ時間・通過時間を導出する．
+つぎに，これらを交通流累積図を用いて視覚的に表すことで，歩き乗りの有用性を評価する．
+さらに，並ぶ時間・通過時間や不満度の総和を最小とする止まる列・歩く列への人数配分を求める．
+最後に，エスカレータ上の人の流れを模したシミュレータを作成し，出口付近の詰まり，および，歩行間隔の変化が与える影響を，渋滞の伝播や並ぶ時間・通過時間などの観点から考察する．
+歩行様式により，並ぶ時間や通過時間がそれぞれ変化することを確認し，不満の定量化という概念に基づく乗り方の最適化問題の可能性を示す．
+</p><p><img alt="simulation.jpg" height="360" src="/SCHP/research/control_systems_in_society/escalator/simulation.jpg" width="720">
+</p>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>

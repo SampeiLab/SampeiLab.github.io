@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+
+<title>劣駆動アームの技巧的投球制御 - Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</title>
+
+<meta name="description" content=" 　人間は身体の関節を巧みに動かすことで投球運動をおこなうが，肘関節の伸展トルク..." />
+<meta name="keywords" content="" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.38, user-scalable=0">
+<meta name="format-detection" content="telephone=no" />
+
+<link rel="shortcut icon" href="/SCHP/img/favicon.png" />
+<link rel="apple-touch-icon" href="/SCHP/img/apple-touch-icon.png" />
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/SCHP/xml/atom.xml" />
+
+
+<!-- // CSS // -->
+<link rel="stylesheet" href="/SCHP/css/s.css">
+<link rel="stylesheet" href="/SCHP/css/font_S.css" id="styleChange">
+
+<!-- // javascript // -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/SCHP/js/jquery.js"><\/script>')</script>
+<script src="/SCHP/js/jquery.cookie.js"></script>
+<script src="/SCHP/js/jquery.colorbox-min.js"></script>
+<script src="/SCHP/js/share.js"></script>
+
+<!--[if lt IE 9]><script src="/SCHP/js/html5.js"></script><![endif]-->
+
+<!-- // analytics // -->
+<script src="/SCHP/js/ga.js"></script>
+
+
+
+<script src="/SCHP/js/mt.js"></script>
+</head>
+<body id="uHatTheme006" class="body-page">
+
+<div id="page">
+
+<header id="globalHeader"><div class="inner">
+<div class="hgroup">
+<h1><a href="/SCHP/" title="Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室">Sampei Laboratory | 東京工業大学 工学院 システム制御系 三平研究室</a></h1>
+<p>Department of Systems and Control Engineering, School of Engineering, Tokyo Institute of Technology</p>
+</div>
+
+<p class="navBtn"><span class="toggleBtn">MENU</span></p>
+
+<div class="toggleArea">
+<nav>
+<ul>
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+</nav>
+
+<ul class="styleChange">
+<li><span onclick="jstyle('/SCHP/css/font_S.css')">小</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_M.css')">中</span></li>
+<li><span onclick="jstyle('/SCHP/css/font_L.css')">大</span></li>
+</ul>
+<!-- / .toggleArea END --></div>
+
+<!-- / header.global END --></div>
+
+</header>
+
+<div id="contents"><div class="inner">
+
+
+
+<div id="main">
+
+
+<div class="article" id="entryID_16">
+
+<div class="articleHeader">
+<h2>劣駆動アームの技巧的投球制御</h2>
+<ul>
+
+Tags: <li class="tag"><a href="/SCHP/tags/ゼロダイナミクス.html">ゼロダイナミクス</a>, <a href="/SCHP/tags/不安定ゼロダイナミクス.html">不安定ゼロダイナミクス</a>, <a href="/SCHP/tags/入出力線形化.html">入出力線形化</a>, <a href="/SCHP/tags/劣駆動系.html">劣駆動系</a>, <a href="/SCHP/tags/平面リンクマニピュレータ.html">平面リンクマニピュレータ</a>, <a href="/SCHP/tags/投球運動.html">投球運動</a></li>
+</ul>
+<!-- / .articleHeader END --></div>
+
+<div class="articleBody">
+
+<p><img alt="ThrowingMotion.png" height="433" src="/SCHP/research/pitcher_robot/ThrowingMotion.png" width="879">
+</p><p>　人間は身体の関節を巧みに動かすことで投球運動をおこなうが，肘関節の伸展トルクを用いないことが運動のしなやかさに繋がっている．
+このことに着目し，本研究では目標方向への投球を実現し，さらに技巧的な動作を利用したエネルギー効率の良い投球運動の制御方策を提案する．
+</p><p>　投球運動内の技巧的な特徴として
+</p><ul><li>体幹部から手先へのエネルギー伝達によりボールを加速する点
+</li><li>肘関節の伸展トルクを利用せず，腕のしなりを利用する点
+</li><li>肩関節の回転方向によって肘関節が拘束状態になる点
+</li></ul><p>が挙げられる．
+これらの特徴を利用可能なモデルとして，劣駆動モデルである肘関節が非駆動な平面2リンクマニピュレータを用いる．
+さらに肘関節の拘束状態を利用している点を考慮して，バネモデルと物理拘束モデルという2つのモデルを提案する．
+バネモデルは肘関節の拘束と腕の剛性を肘関節まわりのバネで表現し物理拘束モデルは肘関節まわりに可動限界が存在する完全な物理拘束を設ける．
+</p><p>　提案したモデルは劣駆動モデルであるため，手先のボール位置を直線上に乗せるような出力零化制御を行い目標方向への投射を実現する．
+この方法は直線上でボールをリリースすれば目標方向への投射を実現できる上にボールへのエネルギー伝達が生じる条件を満すことができる．
+バネモデルでは出力零化を行うための出力関数のパラメータを最適化することでバネの剛性を効果的に利用する出力関数のパラメータを求めた．
+物理拘束モデルでは1リンクモデルと比較することでエネルギー効率と投射速度において利点を示した．
+</p><h5>動画
+</h5><ul><li>実験<br><iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/JesFl3DoPiM" width="560"></iframe>
+<iframe allowfullscreen frameborder="0" height="315" src="https://www.youtube.com/embed/U9Eam15QMX4" width="420"></iframe>
+</li></ul><h5>投稿論文・学会発表
+</h5><ul><li>三平満司，中浦茂樹，小路拓也， &quot;不安定ゼロダイナミクスを用いた運動の制御-投球運動への応用-&quot;， 第26回センシングフォーラム計測部門大会，計測自動制御学会，2009
+</li><li>Shunsuke KATSUMATA, Shigenori ICHINOSE, Takuya SHOJI, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Throwing Motion Control based on Output Zeroing utilizing 2-Link Underactuated Arm&quot;, 2009 American Control Conference, 2009
+</li><li>小路拓也，中浦茂樹，三平満司， &quot;ゼロダイナミクス解析に基づくPendubot型劣駆動アームにおける技巧的投球運動の実現&quot;， 第9回制御部門大会論文集，計測自動制御学会，2009
+</li><li>Shigenori ICHINOSE, Shunsuke KATSUMATA, Shigeki NAKAURA, and Mitsuji SAMPEI, &quot;Throwing Motion Control Experiment utilizing 2-Link Arm with Passive Joint&quot;, 2008 SICE Annual Conference, 2008
+</li></ul>
+
+
+
+
+<!-- / .articleBody END --></div>
+
+<div class="articleFooter">
+<!-- / .articleFooter END --></div>
+
+<!-- / .article END --></div>
+
+
+
+
+<p class="pageTop"><a href="#page">このページの上部へ</a></p>
+<!-- / #main END --></div>
+
+<div id="side">
+<div class="item links">
+<h2>リンク</h2>
+<ul>
+<li><a href="http://www.titech.ac.jp/">東京工業大学</a></li>
+<li><a href="http://www.titech.ac.jp/about/organization/schools/organization02.html">工学院</a></li>
+<li><a href="http://educ.titech.ac.jp/sc/">システム制御系</a></li>
+<li><a href="http://www.ctrl.titech.ac.jp/">制御システム工学科（旧システム制御系）</a></li>
+<li><a href="http://www.sice.jp/">計測自動制御学会(SICE)</a></li>
+<li><a href="http://www.sice-ctrl.jp/jp/">SICE制御部門</a></li>
+<li><a href="http://www.ieeecss.org/">IEEE Control Systems Society</a></li>
+</ul>
+<!-- / .item END --></div>
+
+<!-- / #side END --></div>
+
+<!-- / #contents END --></div></div>
+
+<footer id="globalFooter"><div class="inner">
+<ul class="footerMenu">
+<li class="home"><a href="/SCHP/">HOME</a></li>
+<li><a href="/SCHP/archives/">NEWS</a></li>
+<li><a href="/SCHP/publication.html">PUBLICATION</a></li><li><a href="/SCHP/research.html">RESEARCH</a></li><li><a href="/SCHP/member.html">MEMBER</a></li><li><a href="/SCHP/seminar.html">SEMINAR</a></li><li><a href="/SCHP/tool.html">TOOL</a></li><li><a href="/SCHP/contact.html">CONTACT</a></li>
+
+
+</ul>
+<ul class="by">
+<li><small>Powered by <a href="http://www.sixapart.jp/movabletype/">Movable Type 7.903.0</a></small></li>
+<li><small>Originally Designed by <a href="http://mt.underhat.jp/">MT _^</a></small></li>
+</ul>
+<p class="copyright"><small>Copyright &copy; 2026 Sampei Laboratory All Rights Reserved.</small></p>
+<!-- / footer.global END --></div></footer>
+
+<!-- / #page END --></div>
+</body>
+</html>
